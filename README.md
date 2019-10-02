@@ -1,5 +1,5 @@
 # Mega-Leyendas-Grupo-D
-<center>
+<p align="center">
   texto centrado
-  </center>
-  
+</p>
+texto no centrado
