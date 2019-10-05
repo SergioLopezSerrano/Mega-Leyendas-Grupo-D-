@@ -1,8 +1,5 @@
 # Mega-Leyendas-Grupo-D
-<p align="center">
-  Game Design Document
-</p>
+<p align="center"><b>Aquí irá el título del juego</b></p>
+<p align="center"><b>Game Design Document</b></p>
+
 **texto en negrita**
-  *texto en italica*
-  _texto en italica_
-  __texto en negria__
