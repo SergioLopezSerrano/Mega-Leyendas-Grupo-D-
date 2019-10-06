@@ -1,5 +1,6 @@
 # Mega-Leyendas-Grupo-D
-<p align="center"><b>Aquí irá el título del juego</b></p>
-<p align="center"><b>Game Design Document</b></p>
+## Aquí irá el título del juego
+### Game Design Document  
 
-**texto en negrita**
+##### 9 de Octubre de 2019
+###### Fase 1
