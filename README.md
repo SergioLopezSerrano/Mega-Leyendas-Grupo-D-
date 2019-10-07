@@ -1,4 +1,4 @@
-# Aquí irá el título del juego
+# Legends Realm
 ## Game Design Document
 --------------------------------------------------------
 ##### 9 de Octubre de 2019
@@ -25,16 +25,16 @@
 -------------------------------------------------------
 
 ### 1. Introducción
-Este es el Documento de Diseño de Juego de *(nombre de juego)*. Un videojuego multijugador con funcionalidades online para PC de dos jugadores, uno contra uno. Desarrollado en Java/JavaScript y optimizado para conseguir la máxima fluidez posible.  
-Este documento servirá de guía para plasmar todos los elementos de los que dispone *(nombre del juego)* y servir como carta de presentación del mismo.
+Este es el Documento de Diseño de Juego de *Legends Realm*. Un videojuego multijugador con funcionalidades online para PC de dos jugadores, uno contra uno. Desarrollado en Java/JavaScript y optimizado para conseguir la máxima fluidez posible.  
+Este documento servirá de guía para plasmar todos los elementos de los que dispone *Legends Realm* y servir como carta de presentación del mismo.
 
 #### 1.1 Concepto del juego
-*(nombre del juego)* es un juego de deportes 2D en vista cenital en el que controlaremos a una *Mega-Leyenda* y nos enfrentaremos a otra en un terreno de juego con obstáculos, dos porterías y un balón. Deberemos conseguir el balón y llevarlo hasta la portería contraria para ganar.
+*Legends Realm* es un juego de deportes 2D en vista cenital en el que controlaremos a una *Mega-Leyenda* y nos enfrentaremos a otra en un terreno de juego con obstáculos, dos porterías y un balón. Deberemos conseguir el balón y llevarlo hasta la portería contraria para ganar.
 
 #### 1.2 Características principales
-  - **Táctica**: si bien el objetivo es sencillo, *(nombre del juego)* depende mucho de tener una buena estrategia para intentar engañar al oponente, sortear los obstáculos y marcar.
+  - **Táctica**: si bien el objetivo es sencillo, *Legends Realm* depende mucho de tener una buena estrategia para intentar engañar al oponente, sortear los obstáculos y marcar.
   - **Dinamismo**: a pesar de tener que pensar una buena estrategia, debes hacerlo rápido, ya que el contrincante intentará robarte el balón y marcar.
-  - **Ampliación**: *(nombre del juego)* tiene una característica ampliable clara: escenarios y personajes. El juego debe estar abierto a la posibilidad de introducir nuevos personajes con habilidades únicas y nuevos mapas con diferentes obstáculos y temáticas.
+  - **Ampliación**: *Legends Realm* tiene una característica ampliable clara: escenarios y personajes. El juego debe estar abierto a la posibilidad de introducir nuevos personajes con habilidades únicas y nuevos mapas con diferentes obstáculos y temáticas.
 --------------------------------------------------------------------------------
 
 ### 2. Mecánicas del juego
@@ -53,7 +53,7 @@ Para conseguir el objetivo del juego disponemos de las siguientes herramientas:
 ---------------------------------------------------------------------------------------------
 
 ### 3. Personajes
-Para que sea más entretenido, *(nombre del juego)* cuenta con varios personajes únicos, llamados *Mega-Leyendas*. Estos personajes poseen estética y habilidades diferentes entre sí. De este modo, puedes escoger el que más te guste o el que mejor se amolde a tu estilo de juego.
+Para que sea más entretenido, *Legends Realm* cuenta con varios personajes únicos, llamados *Mega-Leyendas*. Estos personajes poseen estética y habilidades diferentes entre sí. De este modo, puedes escoger el que más te guste o el que mejor se amolde a tu estilo de juego.
 
 --------------------------------------------------------------------------------------------------
 
