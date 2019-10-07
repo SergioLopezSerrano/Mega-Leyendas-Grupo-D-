@@ -31,6 +31,8 @@ Este documento servirá de guía para plasmar todos los elementos de los que dis
 #### 1.1 Concepto del juego
 *Legends Realm* es un juego de deportes 2D en vista cenital en el que controlaremos a una *Mega-Leyenda* y nos enfrentaremos a otra en un terreno de juego con obstáculos, dos porterías y un balón. Deberemos conseguir el balón y llevarlo hasta la portería contraria para ganar.
 
+![Vista del mapa](https://drive.google.com/file/d/1EhCo5GgSWWwcc8EmHTHqGW-5M22DvUDA/view?usp=sharing)
+
 #### 1.2 Características principales
   - **Táctica**: si bien el objetivo es sencillo, *Legends Realm* depende mucho de tener una buena estrategia para intentar engañar al oponente, sortear los obstáculos y marcar.
   - **Dinamismo**: a pesar de tener que pensar una buena estrategia, debes hacerlo rápido, ya que el contrincante intentará robarte el balón y marcar.
@@ -53,7 +55,11 @@ Para conseguir el objetivo del juego disponemos de las siguientes herramientas:
 ---------------------------------------------------------------------------------------------
 
 ### 3. Personajes
-Para que sea más entretenido, *Legends Realm* cuenta con varios personajes únicos, llamados *Mega-Leyendas*. Estos personajes poseen estética y habilidades diferentes entre sí. De este modo, puedes escoger el que más te guste o el que mejor se amolde a tu estilo de juego.
+Para que sea más entretenido, *Legends Realm* cuenta con varios personajes únicos, llamados *Mega-Leyendas*. Estos personajes poseen estética y habilidades diferentes entre sí. De este modo, puedes escoger el que más te guste o el que mejor se amolde a tu estilo de juego
+
+![Bocetos personajes](https://drive.google.com/file/d/1cY1kMoMwGa_XRLYcGKTtyc6Yhvwt-u4w/view?usp=sharing)
+
+![Inspiración personajes](https://drive.google.com/file/d/1Eh5XbHJjwoGnBlxuv_3OuierZIoBgWZB/view?usp=sharing)
 
 --------------------------------------------------------------------------------------------------
 
