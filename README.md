@@ -17,7 +17,7 @@
   1.1 Concepto del juego  
   1.2 Características principales
 2. Mecánicas del juego  
-  2.1 Objetivo
+  2.1 Objetivo  
   2.2 Jugabilidad
 3. Personajes
 4. Funcionalidades principales
