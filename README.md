@@ -25,7 +25,7 @@
 -------------------------------------------------------
 
 ### 1. Introducción
-Este es el Documento de Diseño de Juego de *Legends Realm*. Un videojuego multijugador con funcionalidades online para PC de dos jugadores, uno contra uno. Desarrollado en Java/JavaScript y optimizado para conseguir la máxima fluidez posible.  
+Este es el Documento de Diseño de Juego de *Legends Realm*, un videojuego multijugador con funcionalidades online para PC de dos jugadores, uno contra uno. Desarrollado en Java/JavaScript y optimizado para conseguir la máxima fluidez posible.  
 Este documento servirá de guía para plasmar todos los elementos de los que dispone *Legends Realm* y servir como carta de presentación del mismo.
 
 #### 1.1 Concepto del juego
@@ -47,8 +47,8 @@ El objetivo del juego es **conseguir más puntos que el contrario**. La partida 
 
 #### 2.2 Jugabilidad
 Para conseguir el objetivo del juego disponemos de las siguientes herramientas:
-  - **Movilidad**: los personajes disponen de mucha fluidez de movimiento, putno clave para conseguir ejecutar táctcas rápidas.
-  - **Obstáculos**: el mapa presenta una serie de obstáculos que dificulatarán la tarea del jugador para marcar gol, por tanto, serán parte fundamental a tener en cuenta a la hora de pensar la estrategia.
+  - **Movilidad**: los personajes disponen de mucha fluidez de movimiento, punto clave para conseguir ejecutar tácticas rápidas.
+  - **Obstáculos**: el mapa presenta una serie de obstáculos que dificultarán la tarea del jugador para marcar gol, por tanto, serán parte fundamental a tener en cuenta a la hora de pensar la estrategia.
   - **Ataques básicos**: todos los personajes disponen de ataques básicos para atacar al enemigo.
   - **Habilidades especiales**: los personajes son únicos y poseen diferentes habilidades que hace de la experiencia de juego diferente entre cada uno de ellos.
   - **Mejoras y desventajas**: aparecerán de forma aleatoria por el mapa ciertos "objetos" que el jugador podrá coger. Éstos pueden ser mejoras (por ejemplo, más velocidad) o desventajas (por ejemplo, menos velocidad).
