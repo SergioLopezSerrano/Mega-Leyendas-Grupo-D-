@@ -1,5 +1,5 @@
 # LEGENDS REALM
-#### *Legends Realm* es un juego de deportes 1 contra 1 en el que, en un límite de tiempo de 3 minutos, deberás conseguir anotar más puntos que el contrario.
+### *Legends Realm* es un juego de deportes 1 contra 1 en el que, en un límite de tiempo de 3 minutos, deberás conseguir anotar más puntos que el contrario.
 ### Para acompañarte en esta aventura tendrás a las Mega Leyendas, unos seres con habilidades especiales, distintos unos de otros.
 ### Elabora una buena estrategia, esquiva los obstáculos, rebasa al contrario y ¡anota un tanto!
 
