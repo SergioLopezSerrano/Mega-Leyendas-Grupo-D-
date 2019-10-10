@@ -65,7 +65,7 @@ Para que sea más entretenido, *Legends Realm* cuenta con varios personajes úni
 
 ### 4. Funcionalidades principales
 Usaremos WASD para mover a nuestro personaje y el puntero del ratón para girarlo. El número de habilidades por personaje puede variar, pero las teclas principales para usarlos serán Q, E, Mayús. Izq. y, dado el caso, Alt.  
-Para coger el balón, se matiene pulsado ESPACIO y al soltarlo, soltaremos el balón en la dirección del movimiento.  
+Para coger el balón, se mantiene pulsado ESPACIO y al soltarlo, soltaremos el balón en la dirección del movimiento.  
 ![Teclas](https://i.imgur.com/H1RIQX8.png)
 
 --------------------------------------------------------------------------------------------------
