@@ -22,7 +22,7 @@
 3. Personajes
 4. Funcionalidades principales
 5. Organización
-6. Actualizaciones y novedades de la nueva fase
+6. Actualizaciones y novedades de la fase 2
 -------------------------------------------------------
 
 ### 1. Introducción
@@ -76,4 +76,5 @@ Para organizar al equipo, disponemos de [este tablero de Trello](https://trello.
 
 ---------------------------------------------------------------------------------------------------
 
-### 6. Actualizaciones y novedades de la nueva fase
+### 6. Actualizaciones y novedades de la fase 2
+En esta fase hemos desarrollado el juego en local para dos jugadores. Para esto, hemos tenido que hacer algunas modificaciones a los controles:
