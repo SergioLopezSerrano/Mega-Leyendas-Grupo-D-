@@ -32,7 +32,7 @@ Este documento servirá de guía para plasmar todos los elementos de los que dis
 #### 1.1 Concepto del juego
 *Legends Realm* es un juego de deportes 2D en vista cenital en el que controlaremos a una *Mega-Leyenda* y nos enfrentaremos a otra en un terreno de juego con obstáculos, dos porterías y un balón. Deberemos conseguir el balón y llevarlo hasta la portería contraria para ganar.
 
-![Mapa](https://i.imgur.com/2R93BbN.jpg)
+![Mapa](/resources/inspiracion_escenario.jpg)
 
 #### 1.2 Características principales
   - **Táctica**: si bien el objetivo es sencillo, *Legends Realm* depende mucho de tener una buena estrategia para intentar engañar al oponente, sortear los obstáculos y marcar.
@@ -78,3 +78,5 @@ Para organizar al equipo, disponemos de [este tablero de Trello](https://trello.
 
 ### 6. Actualizaciones y novedades de la fase 2
 En esta fase hemos desarrollado el juego en local para dos jugadores. Para esto, hemos tenido que hacer algunas modificaciones a los controles:
+
+![Controles multijugador local](/resources/controles_local.png)
