@@ -58,16 +58,16 @@ Para conseguir el objetivo del juego disponemos de las siguientes herramientas:
 ### 3. Personajes
 Para que sea más entretenido, *Legends Realm* cuenta con varios personajes únicos, llamados *Mega-Leyendas*. Estos personajes poseen estética y habilidades diferentes entre sí. De este modo, puedes escoger el que más te guste o el que mejor se amolde a tu estilo de juego
 
-![Bocetos de personajes](https://i.imgur.com/Ra56mO6.jpg)
+![Bocetos de personajes](/resources/boceto_pjs.jpg)
 
-![Inspiración de personajes](https://i.imgur.com/txfmf2R.jpg)
+![Inspiración de personajes](/resources/inspiracion_pjs.jpg)
 
 --------------------------------------------------------------------------------------------------
 
 ### 4. Funcionalidades principales
 Usaremos WASD para mover a nuestro personaje y el puntero del ratón para girarlo. El número de habilidades por personaje puede variar, pero las teclas principales para usarlos serán Q, E, Mayús. Izq. y, dado el caso, Alt.  
 Para coger el balón, se mantiene pulsado ESPACIO y al soltarlo, soltaremos el balón en la dirección del movimiento.  
-![Teclas](https://i.imgur.com/H1RIQX8.png)
+![Teclas](/resources/controles.png)
 
 --------------------------------------------------------------------------------------------------
 
