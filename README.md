@@ -83,3 +83,10 @@ En esta fase hemos desarrollado el juego en local para dos jugadores. Para esto,
 
 En esta foto vemos como el jugador 1 (rojo) usa los botones WASD para moverse y el espacio como botón de acción, para seleccionar personaje en la pantalla de personaje y para coger la pelota cuando se está jugando.  
 Por otro lado, el jugador 2 (azul) usa las flechas para moverse y el 0 como botón de acción, para seleccionar personaje en la pantalla de personaje y para coger la pelota cuando se está jugando.
+
+#### ¡Estas son las Mega Leyendas!
+###### (Diseños originales hechos por nuestra artista principal, Álex)
+![Fikhu](https://i.imgur.com/iTVhAZ5.png)
+![Ko'rim](https://i.imgur.com/aa3cAkd.png)
+![Mizumi](https://i.imgur.com/KPzbAmH.png)
+![Niva](https://i.imgur.com/358Dwch.png)
