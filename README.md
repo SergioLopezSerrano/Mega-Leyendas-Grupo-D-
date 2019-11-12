@@ -32,7 +32,7 @@ Este documento servirá de guía para plasmar todos los elementos de los que dis
 #### 1.1 Concepto del juego
 *Legends Realm* es un juego de deportes 2D en vista cenital en el que controlaremos a una *Mega-Leyenda* y nos enfrentaremos a otra en un terreno de juego con obstáculos, dos porterías y un balón. Deberemos conseguir el balón y llevarlo hasta la portería contraria para ganar.
 
-![Mapa](/resources/inspiracion_escenario.jpg)
+![Mapa](https://i.imgur.com/2R93BbN.jpg)
 
 #### 1.2 Características principales
   - **Táctica**: si bien el objetivo es sencillo, *Legends Realm* depende mucho de tener una buena estrategia para intentar engañar al oponente, sortear los obstáculos y marcar.
@@ -58,16 +58,16 @@ Para conseguir el objetivo del juego disponemos de las siguientes herramientas:
 ### 3. Personajes
 Para que sea más entretenido, *Legends Realm* cuenta con varios personajes únicos, llamados *Mega-Leyendas*. Estos personajes poseen estética y habilidades diferentes entre sí. De este modo, puedes escoger el que más te guste o el que mejor se amolde a tu estilo de juego
 
-![Bocetos de personajes](/resources/boceto_pjs.jpg)
+![Bocetos de personajes](https://i.imgur.com/txfmf2R.jpg)
 
-![Inspiración de personajes](/resources/inspiracion_pjs.jpg)
+![Inspiración de personajes](https://i.imgur.com/Ra56mO6.jpg)
 
 --------------------------------------------------------------------------------------------------
 
 ### 4. Funcionalidades principales
 Usaremos WASD para mover a nuestro personaje y el puntero del ratón para girarlo. El número de habilidades por personaje puede variar, pero las teclas principales para usarlos serán Q, E, Mayús. Izq. y, dado el caso, Alt.  
 Para coger el balón, se mantiene pulsado ESPACIO y al soltarlo, soltaremos el balón en la dirección del movimiento.  
-![Teclas](/resources/controles.png)
+![Teclas](https://i.imgur.com/H1RIQX8.png)
 
 --------------------------------------------------------------------------------------------------
 
@@ -79,4 +79,7 @@ Para organizar al equipo, disponemos de [este tablero de Trello](https://trello.
 ### 6. Actualizaciones y novedades de la fase 2
 En esta fase hemos desarrollado el juego en local para dos jugadores. Para esto, hemos tenido que hacer algunas modificaciones a los controles:
 
-![Controles multijugador local](/resources/controles_local.png)
+![Controles multijugador local](https://i.imgur.com/1h8hKbv.png)
+
+En esta foto vemos como el jugador 1 (rojo) usa los botones WASD para moverse y el espacio como botón de acción, para seleccionar personaje en la pantalla de personaje y para coger la pelota cuando se está jugando.  
+Por otro lado, el jugador 2 (azul) usa las flechas para moverse y el 0 como botón de acción, para seleccionar personaje en la pantalla de personaje y para coger la pelota cuando se está jugando.
