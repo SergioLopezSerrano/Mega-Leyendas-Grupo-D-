@@ -77,6 +77,7 @@ Para organizar al equipo, disponemos de [este tablero de Trello](https://trello.
 ---------------------------------------------------------------------------------------------------
 
 ### 6. Actualizaciones y novedades de la fase 2
+#### Controles para dos jugadores
 En esta fase hemos desarrollado el juego en local para dos jugadores. Para esto, hemos tenido que hacer algunas modificaciones a los controles:
 
 ![Controles multijugador local](https://i.imgur.com/1h8hKbv.png)
@@ -90,3 +91,27 @@ Por otro lado, el jugador 2 (azul) usa las flechas para moverse y el 0 como bot�
 ![Ko'rim](https://i.imgur.com/aa3cAkd.png)
 ![Mizumi](https://i.imgur.com/KPzbAmH.png)
 ![Niva](https://i.imgur.com/358Dwch.png)
+
+#### ¡Diseño original!
+###### (Diseños originales hechos por nuestra artista principal, Álex)
+###### (Excepto los mapas y la pelota)
+**Pantalla de inicio**
+![PantalladeInicio](https://i.imgur.com/iynKIEM.png)
+
+**Menú de selección**
+![MenuSeleccion](https://i.imgur.com/u771q79.png)
+
+**Menú de selección de personajes**
+![SeleccionPersonajes](https://i.imgur.com/W9t9Gwi.png)
+
+**Menú de selección de mapa**
+![Mapas](https://i.imgur.com/2KkN1My.jpg)
+
+**Juego en vivo**
+![Juego](https://i.imgur.com/T2gdKgi.png)
+
+**Menú de pausa**
+![Pausa](https://i.imgur.com/X6FuM24.png)
+
+**Final del juego y resultados**
+![FinJuego](https://i.imgur.com/XwatKjc.png)
