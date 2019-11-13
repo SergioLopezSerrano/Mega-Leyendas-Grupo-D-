@@ -17,12 +17,13 @@ function inicio() {
     inicioAudio.src = "Music/musicStart.mp3";
     inicioAudio.currentTime = 0;
     inicioAudio.loop = true;
-    inicioAudio.play();
+    
     
 
     //Funcion PANTALLA COMPLETA
     function pantallaCompleta(e) {
         document.documentElement.requestFullscreen();
+        inicioAudio.play();
     }
     ;
 
@@ -45,12 +46,10 @@ function inicio() {
             if (paintTxt) {
                 //DIBUJAR texto
                 contexto.fillStyle = "white";
-                contexto.strokeStyle = "purple";
                 contexto.lineWidth = 2;
-                contexto.font = "60px Arial";
+                contexto.font = "50px Kristen ITC";
                 contexto.textAlign = "center";
                 contexto.fillText("Pulsa espacio para empezar", canvas.width / 2, canvas.height - 175);
-                contexto.strokeText("Pulsa espacio para empezar", canvas.width / 2, canvas.height - 175);
             }
         };
         this.update = function () {

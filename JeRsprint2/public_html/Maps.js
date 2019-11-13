@@ -36,19 +36,19 @@ function maps(chosenP1SPR, chosenP2SPR, menuAudio) {
     
     
     //Array de Canciones    
-
-    
-    //gameOverSnd.currentTime = 0;
-    //gameOverSnd.play();
     var mapSND = [];
     mapSND[0] = new Audio();
     mapSND[0].src = "Music/musicWater.mp3";
+    mapSND[0].loop = true;
     mapSND[1] = new Audio();
     mapSND[1].src = "Music/musicFire.mp3";
+    mapSND[1].loop = true;
     mapSND[2] = new Audio();
     mapSND[2].src = "Music/musicForest.mp3";
+    mapSND[2].loop = true;
     mapSND[3] = new Audio();
     mapSND[3].src = "Music/musicCandy.mp3";
+    mapSND[3].loop = true;
 
     //Cursores
     var cursorSPR = [];
@@ -57,7 +57,7 @@ function maps(chosenP1SPR, chosenP2SPR, menuAudio) {
 
     //Fondo de la pantalla de seleccion de escenario
     var backgroundSPR = new Image();
-    backgroundSPR.src = "mapSelectBckg.png";
+    backgroundSPR.src = "MenuSeleccion.jpg";
 
     //Boton de cambiar el tiempo
     var timeButtonSPR = new Image();
@@ -258,7 +258,7 @@ function maps(chosenP1SPR, chosenP2SPR, menuAudio) {
             //Dibujar fondo
             for (var j = 0; j < nMaps + 1; j++) { //Comprobar si P1 ESTA TOCANDO UN SLOT
                 if (!mapHex[j].getCanSelect1() && !cursores.getSelected() || j === 4) {
-                    backgroundSPR.src = "mapSelectBckg.png";
+                    backgroundSPR.src = "MenuSeleccion.jpg";
                 }
             }
             for (var j = 0; j < nMaps + 1; j++) { //Comprobar si P1 NO ESTA TOCANDO UN SLOT
@@ -272,18 +272,18 @@ function maps(chosenP1SPR, chosenP2SPR, menuAudio) {
             contexto.drawImage(timeButtonSPR, (timeHex.getPosX() - timeHex.getSizeX() / 2), (timeHex.getPosY() - timeHex.getSizeY() / 2), timeHex.getSizeX(), timeHex.getSizeY());
 
             //Dibujar Tiempo 
-            contexto.fillStyle = "green";
-            contexto.strokeStyle = "blue";
+            contexto.fillStyle = "white";
+            contexto.strokeStyle = "purple";
             contexto.lineWidth = 1.5;
-            contexto.font = "80px Arial";
+            contexto.font = "80px Kristen ITC";
             contexto.textAlign = "center";
             if (time > 0) {
                 contexto.fillText(time, canvas.width / 2, 190);
                 contexto.strokeText(time, canvas.width / 2, 190);
             } else {
 
-                contexto.fillText("INFINITE", canvas.width / 2, 190);
-                contexto.strokeText("INFINITE", canvas.width / 2, 190);
+                contexto.fillText("Infinito", canvas.width / 2, 190);
+                contexto.strokeText("Infinito", canvas.width / 2, 190);
             }
 
             //Dibujar slots de mapas
@@ -295,10 +295,10 @@ function maps(chosenP1SPR, chosenP2SPR, menuAudio) {
             contexto.fillStyle = "white";
             contexto.strokeStyle = "purple";
             contexto.lineWidth = 2;
-            contexto.font = "70px Arial";
+            contexto.font = "70px Kristen ITC";
             contexto.textAlign = "center";
-            contexto.fillText("P1 selecciona escenario", canvas.width / 2, canvas.height - 100);
-            contexto.strokeText("P1 selecciona escenario", canvas.width / 2, canvas.height - 100);
+            contexto.fillText("Jugador 1 selecciona escenario", canvas.width / 2, canvas.height - 100);
+            contexto.strokeText("Jugador 1 selecciona escenario", canvas.width / 2, canvas.height - 100);
 
             //Dibujar cursor
             contexto.drawImage(cursorSPR, cursores.getPosX() - (cursorSPR.width / 2), cursores.getPosY() - (cursorSPR.height / 2), cursorSPR.width, cursorSPR.height);

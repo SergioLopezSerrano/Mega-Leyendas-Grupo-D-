@@ -31,7 +31,7 @@ function seleccion() {
 
     //Controles
     var controlesSPR = new Image();
-    controlesSPR.src = "Controles.png";
+    controlesSPR.src = "Controles.jpg";
 
     //Creditos
     var creditosSPR = new Image();
@@ -87,7 +87,7 @@ function seleccion() {
                 }
             }
         }
-        if (e.key === ' ') { //si le das a espacio...
+        if (e.key === ' ' || e.key === "0") { //si le das a espacio...
             switch (move) {
                 case 0: //si le das a espacio cuando estas seleccionando "Jugar"
                     go2Roster = true;
@@ -106,7 +106,7 @@ function seleccion() {
                     break;
             }
         }
-        if (e.key === 'b' || e.key === 'B') { //si le das a escape...
+        if (e.key === 'v' || e.key === '    v   ') { //si le das a escape...
             if (drawControles) //sales de la pantalla de controles en caso de estar en ella
                 drawControles = false;
 

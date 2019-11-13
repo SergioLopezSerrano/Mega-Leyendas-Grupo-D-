@@ -23,6 +23,11 @@ function juego(character1, character2, scenario, tiempo, music) {
     porteriaSPR[1] = new Image();
     porteriaSPR[1].src = "PorteriaP2.png";
 
+    var clockSPR = new Image();
+    clockSPR.src = "Reloj.png";
+
+    var marcoPuntSPR = new Image()
+    marcoPuntSPR.src = "marcador.png";
     //IMAGENES PAUSA
     var pausaSPR = [];
     pausaSPR[0] = new Image();
@@ -178,7 +183,7 @@ function juego(character1, character2, scenario, tiempo, music) {
                 }
             }
             ;
-            if (e.key === 'b' || e.key === 'B') {//PAUSA
+            if (e.key === 'p' || e.key === 'P') {//PAUSA
                 pausa = true;
                 console.log(pausa);
             }
@@ -814,18 +819,7 @@ function juego(character1, character2, scenario, tiempo, music) {
             contexto.fillRect(0, 0, canvas.width, canvas.height);
 
             //DIBUJAR FONDO
-            contexto.drawImage(fondoSPR, 0, 0, canvas.width, canvas.height);
-
-            //DIBUJAR JUGADORES
-            contexto.globalAlpha = 1;
-            for (var i = 0; i < numeroJugadores; i++) {
-                contexto.drawImage(jugadorSPR[i], player[i].getPosX() - jugadorSPR[i].width / 2, player[i].getPosY() - jugadorSPR[i].height / 2, jugadorSPR[i].width, jugadorSPR[i].height);
-            }
-            ;
-
-            //DIBUJAR BOLA
-            contexto.globalAlpha = 1;
-            contexto.drawImage(bolaSPR, ball.getPosX() - bolaSPR.width / 2, ball.getPosY() - bolaSPR.height / 2, bolaSPR.width, bolaSPR.height);
+            contexto.drawImage(fondoSPR, 0, 0, canvas.width, canvas.height);                      
 
             //DIBUJAR BARRERAS
             contexto.globalAlpha = 1;
@@ -846,29 +840,44 @@ function juego(character1, character2, scenario, tiempo, music) {
             }
             ;
 
+            //DIBUJAR MARCO CONTADORES
+            contexto.drawImage(marcoPuntSPR, (canvas.width / 2) - marcoPuntSPR.width / 2 , (90) - marcoPuntSPR.height / 2 , marcoPuntSPR.width, marcoPuntSPR.height);
+
             //DIBUJAR MARCADORES
             contexto.fillStyle = "white";
-            contexto.strokeStyle = "red";
+            contexto.strokeStyle = "purple";
             contexto.lineWidth = 2;
-            contexto.font = "50px Arial";
+            contexto.font = "50px Kristen ITC";
             contexto.textAlign = "center";
-            contexto.fillText(puntuacionJ1 + " -- " + puntuacionJ2, canvas.width / 2, 80);
-            contexto.strokeText(puntuacionJ1 + " -- " + puntuacionJ2, canvas.width / 2, 80);
+            contexto.fillText(puntuacionJ1 + " -- " + puntuacionJ2, canvas.width / 2, 105);
+            contexto.strokeText(puntuacionJ1 + " -- " + puntuacionJ2, canvas.width / 2, 105);
+
+
+            //DIBUJAR SPRITE RELOJ
+            contexto.drawImage(clockSPR, (canvas.width / 2) - clockSPR.width / 2 , (30) - clockSPR.height / 2 , clockSPR.width, clockSPR.height);
 
             //DIBUJAR RELOJ
-            contexto.fillStyle = "yellow";
-            contexto.strokeStyle = "blue";
+            contexto.fillStyle = "white";
+            contexto.strokeStyle = "purple";
             contexto.lineWidth = 1;
-            contexto.font = "30px Arial";
+            contexto.font = "30px Kristen ITC";
             contexto.textAlign = "center";
             if (tiempo > 0) {
                 contexto.fillText(reloj, canvas.width / 2, 40);
                 contexto.strokeText(reloj, canvas.width / 2, 40);
             } else {
-                contexto.fillText("INFINITE", canvas.width / 2, 40);
-                contexto.strokeText("INFINITE", canvas.width / 2, 40);
+                contexto.fillText("Infinito", canvas.width / 2, 40);
+                contexto.strokeText("Infinito", canvas.width / 2, 40);
             }
-
+            //DIBUJAR JUGADORES
+            contexto.globalAlpha = 1;
+            for (var i = 0; i < numeroJugadores; i++) {
+                contexto.drawImage(jugadorSPR[i], player[i].getPosX() - jugadorSPR[i].width / 2, player[i].getPosY() - jugadorSPR[i].height / 2, jugadorSPR[i].width, jugadorSPR[i].height);
+            }
+            ;
+            //DIBUJAR BOLA
+            contexto.globalAlpha = 1;
+            contexto.drawImage(bolaSPR, ball.getPosX() - bolaSPR.width / 2, ball.getPosY() - bolaSPR.height / 2, bolaSPR.width, bolaSPR.height);
         };
 
         this.frame = function () {
@@ -957,7 +966,6 @@ function juego(character1, character2, scenario, tiempo, music) {
 
     }
     ;
-
 
     //CAPTADORES DE EVENTOS
     window.addEventListener("click", pantallaCompleta, false);
