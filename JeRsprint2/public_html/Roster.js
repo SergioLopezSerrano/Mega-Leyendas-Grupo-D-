@@ -299,12 +299,10 @@ function roster(menuAudio) {
 
             //Dibujar texto
             contexto.fillStyle = "white";
-            contexto.strokeStyle = "purple";
             contexto.lineWidth = 2;
-            contexto.font = "70px Arial";
+            contexto.font = "70px Kristen ITC";
             contexto.textAlign = "center";
-            contexto.fillText("Seleccionad personaje", canvas.width / 2, canvas.height - 300);
-            contexto.strokeText("Seleccionad personaje", canvas.width / 2, canvas.height - 300);
+            contexto.fillText("Seleccionad personaje", canvas.width / 2, canvas.height - 200);
 
             //Dibujar recuadros de seleccion de personaje
             for (var i = 0; i < nPlayers; i++) {
