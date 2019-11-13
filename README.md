@@ -115,3 +115,8 @@ Por otro lado, el jugador 2 (azul) usa las flechas para moverse y el 0 como bot�
 
 **Final del juego y resultados**
 ![FinJuego](https://i.imgur.com/XwatKjc.png)
+
+#### Conclusiones y futuras mejoras
+Para las siguientes fases (e idealmente para antes de la entrega de esta misma) trataremos de terminar de mover el código a Phaser. Tenemos varios archivos funcionando ya en Phaser, pero no todos.  
+En la próxima fase modificaremos los controles para que se juegue con teclado y ratón, ya que implementaremos vida de los jugadores y disparos. Se usará el ratón para apuntar y los controles actuales para movernos y coger la pelota.  
+¡Esperamos que os gusten las futuras mejoras!
