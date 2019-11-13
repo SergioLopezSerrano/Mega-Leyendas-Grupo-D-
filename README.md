@@ -120,3 +120,26 @@ Por otro lado, el jugador 2 (azul) usa las flechas para moverse y el 0 como bot�
 Para las siguientes fases (e idealmente para antes de la entrega de esta misma) trataremos de terminar de mover el código a Phaser. Tenemos varios archivos funcionando ya en Phaser, pero no todos.  
 En la próxima fase modificaremos los controles para que se juegue con teclado y ratón, ya que implementaremos vida de los jugadores y disparos. Se usará el ratón para apuntar y los controles actuales para movernos y coger la pelota.  
 ¡Esperamos que os gusten las futuras mejoras!
+
+
+#### Referencias para los backgrounds
+Agua -- Water Background by FireKnight90 on DeviantArt -- (https://www.deviantart.com/fireknight90/art/Water-Background-464156203)
+
+Fuego -- Background firewall 03 by AStoKo on DeviantArt -- (https://www.deviantart.com/astoko/art/Background-firewall-03-709613940)
+
+Bosque -- Cartoon Forest Scene 02 3D model -- (https://www.cgtrader.com/3d-models/exterior/landscape/cartoon-forest-scene-02)
+
+Chuche -- Dulces fondo de pantalla - dulces fondo de pantalla (40197064) - fanpop (http://es.fanpop.com/clubs/candy/images/40197064/title/candy-wallpapers-wallpaper)
+
+#### Referencias para la música
+música de fuego -- (https://www.youtube.com/watch?v=DvOmz2jvyGI)
+
+música de bosque -- (https://www.youtube.com/watch?v=wNMfmoNfJb8)
+
+música de los menús -- (https://www.youtube.com/watch?v=_WnXWy5rfSU)
+
+música de agua -- (https://www.youtube.com/watch?v=IR243woyHmU)
+
+música de chuche -- (https://www.youtube.com/watch?v=cli97CymUmQ)
+
+música de inicio -- (https://www.youtube.com/watch?v=5ov6lzqWjmk)
