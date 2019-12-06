@@ -13,7 +13,9 @@ class MenuPrincipal extends Phaser.Scene {
         //MUSICA
         musicaIntro.stop();
         musicaJuego.stop();
-        musicaMenu.play();
+        if (!musicaMenu.isPlaying) {
+            musicaMenu.play();
+        };
 
         ////VARIABLES OBJETOS/IMAGENES////
         
@@ -25,12 +27,14 @@ class MenuPrincipal extends Phaser.Scene {
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "W", function(event){
+            this.scale.startFullscreen();
             this.seleccion--;
             if (this.seleccion < 0) {
                 this.seleccion = 3;
             };
         },this);
         this.input.keyboard.on("keydown-" + "S", function(event){
+            this.scale.startFullscreen();
             this.seleccion++;
             if (this.seleccion > 3) {
                 this.seleccion = 0;
@@ -39,16 +43,19 @@ class MenuPrincipal extends Phaser.Scene {
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
             switch(this.seleccion) {
                 case 0:
-                    //this.scene.start("Juego"); //prueba
+                    this.scale.startFullscreen();
                     this.scene.start("Menu-Seleccion-Personajes"); 
                     break;
                 case 1:
+                    this.scale.startFullscreen();
                     this.scene.start("Menu-Controles"); 
                     break;
                 case 2:
+                    this.scale.startFullscreen();
                     this.scene.start("Menu-Creditos"); 
                     break;
                 case 3:
+                    this.scale.startFullscreen();
                     window.close();
                     break;
             };

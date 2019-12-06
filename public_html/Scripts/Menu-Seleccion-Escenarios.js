@@ -30,9 +30,8 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         this.mapasSimbolo[4].setDepth(1);
         
         //MINIATURA DE ESCENARIO
-        this.mapa = this.add.image(config.scale.width / 2, config.scale.height / 2 - 50, "MenuSeleccionEscenarios-Mapa-1-Miniatura");
+        this.mapa = this.add.image(config.scale.width / 2, config.scale.height / 2 - 50, "MenuSeleccionEscenarios-Mapa-Miniatura");
         this.mapa.setDepth(1);
-        this.mapa.setVisible(false);
         
         //CAMBIAR TIEMPO    
         this.cambiarTiempo = this.physics.add.staticImage(config.scale.width / 2, config.scale.height / 2 - 300, "MenuSeleccionEscenarios-Cambiar-Tiempo");
@@ -83,40 +82,49 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         this.mapaSelecionado = false;
         this.espacioPulsado = false;
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
+            this.scale.startFullscreen();
             this.espacioPulsado = true;
         },this);
         
         this.teclasEnabled = true;
         this.teclas = [];
         this.teclas[0] = this.input.keyboard.on("keydown-" + "D", function(event){
+            this.scale.startFullscreen();
             if(this.teclasEnabled)
             right[0] = true;
         },this);
         this.teclas[1] = this.input.keyboard.on("keydown-" + "A", function(event){
+            this.scale.startFullscreen();
             if(this.teclasEnabled)
             left[0] = true;
         },this);
         this.teclas[2] = this.input.keyboard.on("keydown-" + "W", function(event){
+            this.scale.startFullscreen();
             if(this.teclasEnabled)
             up[0] = true;
         },this);
         this.teclas[3] = this.input.keyboard.on("keydown-" + "S", function(event){
+            this.scale.startFullscreen();
             if(this.teclasEnabled)
             down[0] = true;
         },this);
         this.teclas[4] = this.input.keyboard.on("keyup-" + "D", function(event){
+            this.scale.startFullscreen();
             if(this.teclasEnabled)
             right[0] = false;
         },this);
         this.teclas[5] = this.input.keyboard.on("keyup-" + "A", function(event){
+            this.scale.startFullscreen();
             if(this.teclasEnabled)
             left[0] = false;
         },this);
         this.teclas[6] = this.input.keyboard.on("keyup-" + "W", function(event){
+            this.scale.startFullscreen();
             if(this.teclasEnabled)
             up[0] = false;
         },this);
         this.teclas[7] = this.input.keyboard.on("keyup-" + "S", function(event){
+            this.scale.startFullscreen();
             if(this.teclasEnabled)
             down[0] = false;
         },this);
@@ -137,6 +145,10 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         };
         if (this.espacioPulsado && this.tiempTocando) {
             switch (this.tiemp) {
+                case 30:
+                    tiempo = 60;
+                    this.tiemp = 60;
+                    break;
                 case 60:
                     tiempo = 90;
                     this.tiemp = 90;
@@ -146,8 +158,8 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
                     this.tiemp = 0;
                     break;
                 case 0:
-                    tiempo = 60;
-                    this.tiemp = 60;
+                    tiempo = 30;
+                    this.tiemp = 30;
                     break;
             };
         };
@@ -191,6 +203,10 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
             this.teclas1Enabled = true;
             this.puntero.setImmovable(false); 
             switch (this.esce) {
+                case 0:
+                    this.mapa = this.add.image(config.scale.width / 2, config.scale.height / 2 - 50, "MenuSeleccionEscenarios-Mapa-Miniatura");
+                    this.mapa.setDepth(2);
+                    break;
                 case 1:
                     this.mapa = this.add.image(config.scale.width / 2, config.scale.height / 2 - 50, "MenuSeleccionEscenarios-Mapa-1-Miniatura");
                     this.mapa.setDepth(2);
@@ -224,6 +240,9 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
             this.cambiarTiempo.setScale(1, 1);
         };
         switch (this.tiemp) {
+            case 30:
+                this.textoTiempo.setText("30");
+                break;
             case 60:
                 this.textoTiempo.setText("60");
                 break;

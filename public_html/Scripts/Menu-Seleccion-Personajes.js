@@ -53,7 +53,7 @@ class MenuSeleccionPersonajes extends Phaser.Scene {
         this.puntero[1].setBounce(0.9);
         
         //TEXTO
-        this.texto = this.add.text(config.scale.width / 2, config.scale.height / 2 + 180, "Selecionad Personaje");
+        this.texto = this.add.text(config.scale.width / 2, config.scale.height / 2 + 180, "Seleccionad Personaje");
         this.texto.setOrigin(0.5, 0.5);
         this.texto.setFont("Arial Black");
         this.texto.setFontSize("70px");
@@ -85,80 +85,98 @@ class MenuSeleccionPersonajes extends Phaser.Scene {
         this.J1Selecionado = false;
         this.espacioPulsado = false;
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
+            this.scale.startFullscreen();
             this.espacioPulsado = true;
         },this);
         
         this.J2Selecionado = false;
         this.ceroPulsado = false;
         this.input.keyboard.on("keydown-" + "NUMPAD_ZERO", function(event){
+            this.scale.startFullscreen();
             this.ceroPulsado = true;
         },this);
         
         this.teclas1Enabled = true;
         this.teclas1 = [];
         this.teclas1[0] = this.input.keyboard.on("keydown-" + "D", function(event){
+            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             right[0] = true;
         },this);
         this.teclas1[1] = this.input.keyboard.on("keydown-" + "A", function(event){
+            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             left[0] = true;
         },this);
         this.teclas1[2] = this.input.keyboard.on("keydown-" + "W", function(event){
+            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             up[0] = true;
         },this);
         this.teclas1[3] = this.input.keyboard.on("keydown-" + "S", function(event){
+            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             down[0] = true;
         },this);
         this.teclas1[4] = this.input.keyboard.on("keyup-" + "D", function(event){
+            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             right[0] = false;
         },this);
         this.teclas1[5] = this.input.keyboard.on("keyup-" + "A", function(event){
+            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             left[0] = false;
         },this);
         this.teclas1[6] = this.input.keyboard.on("keyup-" + "W", function(event){
+            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             up[0] = false;
         },this);
         this.teclas1[7] = this.input.keyboard.on("keyup-" + "S", function(event){
+            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             down[0] = false;
         },this);
         this.teclas2Enabled = true;
         this.teclas2 = [];
         this.teclas2[0] = this.input.keyboard.on("keydown-" + "RIGHT", function(event){
+            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             right[1] = true;
         },this);
         this.teclas2[1] = this.input.keyboard.on("keydown-" + "LEFT", function(event){
+            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             left[1] = true;
         },this);
         this.teclas2[2] = this.input.keyboard.on("keydown-" + "UP", function(event){
+            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             up[1] = true;
         },this);
         this.teclas2[3] = this.input.keyboard.on("keydown-" + "DOWN", function(event){
+            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             down[1] = true;
         },this);
         this.teclas2[4] = this.input.keyboard.on("keyup-" + "RIGHT", function(event){
+            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             right[1] = false;
         },this);
         this.teclas2[5] = this.input.keyboard.on("keyup-" + "LEFT", function(event){
+            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             left[1] = false;
         },this);
         this.teclas2[6] = this.input.keyboard.on("keyup-" + "UP", function(event){
+            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             up[1] = false;
         },this);
         this.teclas2[7] = this.input.keyboard.on("keyup-" + "DOWN", function(event){
+            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             down[1] = false;
         },this);    

@@ -1,4 +1,4 @@
-/* global config, right, left, up, down */
+/* global config, right, left, up, down, musicaJuego */
 
 class Pausa extends Phaser.Scene {
     
@@ -11,6 +11,7 @@ class Pausa extends Phaser.Scene {
         this.seleccion = "reanudar";
         
         this.input.keyboard.on("keydown-" + "W", function(event){
+            this.scale.startFullscreen();
             if (this.seleccion === "reanudar") {
                 this.seleccion = "menu";
                 this.menu.setTexture("Pausa-Menu");
@@ -20,6 +21,7 @@ class Pausa extends Phaser.Scene {
             };
         },this);
         this.input.keyboard.on("keydown-" + "S", function(event){
+            this.scale.startFullscreen();
             if (this.seleccion === "reanudar") {
                 this.seleccion = "menu";
                 this.menu.setTexture("Pausa-Menu");
@@ -29,6 +31,7 @@ class Pausa extends Phaser.Scene {
             };
         },this);
         this.input.keyboard.on("keydown-" + "UP", function(event){
+            this.scale.startFullscreen();
             if (this.seleccion === "reanudar") {
                 this.seleccion = "menu";
                 this.menu.setTexture("Pausa-Menu");
@@ -38,6 +41,7 @@ class Pausa extends Phaser.Scene {
             };
         },this);
         this.input.keyboard.on("keydown-" + "DOWN", function(event){
+            this.scale.startFullscreen();
             if (this.seleccion === "reanudar") {
                 this.seleccion = "menu";
                 this.menu.setTexture("Pausa-Menu");
@@ -48,6 +52,7 @@ class Pausa extends Phaser.Scene {
         },this);
         
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
+            this.scale.startFullscreen();
             if (this.seleccion === "reanudar") {
                 for (var i = 0; i < 2; i++) {
                     right[i] = false;
@@ -55,6 +60,7 @@ class Pausa extends Phaser.Scene {
                     up[i] = false;
                     down[i] = false;
                 };
+                musicaJuego.resume();
                 this.scene.resume("Juego");
                 this.scene.stop("Pausa");
             } else {
@@ -74,6 +80,7 @@ class Pausa extends Phaser.Scene {
             };
         },this);
         this.input.keyboard.on("keydown-" + "NUMPAD_ZERO", function(event){
+            this.scale.startFullscreen();
             if (this.seleccion === "reanudar") {
                 for (var i = 0; i < 2; i++) {
                     right[i] = false;
@@ -81,6 +88,7 @@ class Pausa extends Phaser.Scene {
                     up[i] = false;
                     down[i] = false;
                 };
+                musicaJuego.resume();
                 this.scene.resume("Juego");
                 this.scene.stop("Pausa");
             } else {

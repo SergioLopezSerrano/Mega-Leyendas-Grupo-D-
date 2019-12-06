@@ -17,6 +17,7 @@ class MenuControles extends Phaser.Scene {
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(event){
+            this.scale.startFullscreen();
             this.scene.start("Menu-Principal"); 
         },this);
     };
