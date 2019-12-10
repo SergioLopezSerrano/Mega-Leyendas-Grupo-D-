@@ -1,5 +1,5 @@
 Para iniciar el juego hay que ejecutar el archivo .jar que 
-hay en la carpeta "Server".
+hay en la carpeta "Servidor".
 Si no funciona clicando dos veces en el archivo, iremos a la cmd de 
 Windows, llegaremos a la ruta en la que se encuentra el archivo .jar
 y ejecutaremos el código
