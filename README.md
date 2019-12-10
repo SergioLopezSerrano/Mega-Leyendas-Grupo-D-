@@ -23,6 +23,7 @@
 4. Funcionalidades principales
 5. Organización
 6. Actualizaciones y novedades de la fase 2
+7. Actualizaciones y novedades de la fase 3
 -------------------------------------------------------
 
 ### 1. Introducción
@@ -121,6 +122,50 @@ Para las siguientes fases (e idealmente para antes de la entrega de esta misma) 
 En la próxima fase modificaremos los controles para que se juegue con teclado y ratón, ya que implementaremos vida de los jugadores y disparos. Se usará el ratón para apuntar y los controles actuales para movernos y coger la pelota.  
 ¡Esperamos que os gusten las futuras mejoras!
 
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+### 7. Actualizaciones y novedades de la fase 3
+#### Seguimos con el modo local
+Controles y modo de juego indicados en la fase 2.
+
+#### ¡Algunos rediseños teniendo en cuenta las indicaciones anteriores!
+###### (Diseños originales hechos por nuestra artista principal, Álex)
+###### (Excepto los mapas y la pelota, aunque esta última tiene un rediseño un poco más curioso)
+Podemos observar en todo momento que está el apartado de ver u ocultar los jugadores que hay en línea.
+
+**Pantalla de inicio**
+![PantalladeInicio](https://i.imgur.com/iynKIEM.png)
+
+**Menú de selección**
+![MenuSeleccion](https://i.imgur.com/u771q79.png)
+
+**Menú de selección de personajes**
+![SeleccionPersonajes](https://i.imgur.com/W9t9Gwi.png)
+
+**Menú de selección de mapa**
+![Mapas](https://i.imgur.com/2KkN1My.jpg)
+
+**Juego en vivo**
+![Juego](https://i.imgur.com/T2gdKgi.png)
+
+¡Mención especial a la sustitución de los placeholders por otras barrearas y el diseño del marcador y el tiempo!
+
+**Menú de pausa**
+![Pausa](https://i.imgur.com/X6FuM24.png)
+
+**Final del juego y resultados**
+![FinJuego](https://i.imgur.com/XwatKjc.png)
+
+#### Mejoras
+**¡¡¡PHASER!!!** ¡Al fin hemos conseguido hacer el port completo a Phaser!
+Además de esa gran mejora a nivel funcional, cabe destacar las mejoras artísticas ya mencionadas.
+La otra gran mejora del juego, y la funcionalidad principal de esta fase, es la inclusión del back-end con API REST.
+
+#### Conclusiones y futuras mejoras
+Para las siguientes fases (e idealmente para antes de la entrega de esta misma) trataremos de terminar de mover el código a Phaser. Tenemos varios archivos funcionando ya en Phaser, pero no todos.  
+En la próxima fase modificaremos los controles para que se juegue con teclado y ratón, ya que implementaremos vida de los jugadores y disparos. Se usará el ratón para apuntar y los controles actuales para movernos y coger la pelota.  
+¡Esperamos que os gusten las futuras mejoras!
 
 #### Referencias para los backgrounds
 Agua -- Water Background by FireKnight90 on DeviantArt -- (https://www.deviantart.com/fireknight90/art/Water-Background-464156203)
