@@ -159,8 +159,18 @@ Podemos observar en todo momento que está el apartado de ver u ocultar los juga
 
 #### Mejoras
 **¡¡¡PHASER!!!** ¡Al fin hemos conseguido hacer el port completo a Phaser!
-Además de esa gran mejora a nivel funcional, cabe destacar las mejoras artísticas ya mencionadas.
+Además de esa gran mejora a nivel funcional, cabe destacar las mejoras artísticas ya mencionadas en el apartado anterior.
 La otra gran mejora del juego, y la funcionalidad principal de esta fase, es la inclusión del back-end con API REST.
+Cuando un jugador se conecta al servidor, hace un GET para recibir el HTML y poder jugar al juego. El juego le pide al jugador un nombre de usuario. El jugador introduce su nombre por teclado y clica en un botón para enviar la información e iniciar el juego.
+El cliente hace un POST con los datos del jugador: la ID, asignada por el servidor, el nombre, elegido por el usuario y una variable "conectado" para saber si el usuario está o no online. También aumenta en uno el contador de usuarios conectados en el momento.
+Al desconectarse, el cliente hace un PUT, y modifica el estado de "conectado" a falso. El jugador mantiene reservada esa ID, pero el contador de jugadores conectados disminuirá, y aparecerá como desconectado. Si se vuelve a conectar, recuperará su ID y aumentará el número de jugadores conectados. 
+Tenemos comentada una línea de código para, en vez de hacer un PUT, hacer directamente un DELETE del usuario, pero de momento preferimos la opción de diseño del PUT.
+Para visualizar los jugadores que hay conectados en el momento, podemos usar la tecla "U" que nos mostrará la ID, los nombres y el estado de todos los jugadores (con el nuestro algo más destacado). Si no pulsamos la "U" aparece simplemente un texto con la cantidad de usuarios conectados:
+
+![Pulsar U]
+
+![JugadroesConectados]
+
 
 #### Conclusiones y futuras mejoras
 Para las siguientes fases (e idealmente para antes de la entrega de esta misma) trataremos de terminar de mover el código a Phaser. Tenemos varios archivos funcionando ya en Phaser, pero no todos.  
