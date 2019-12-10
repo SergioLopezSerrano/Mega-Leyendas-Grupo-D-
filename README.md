@@ -173,8 +173,8 @@ Para visualizar los jugadores que hay conectados en el momento, podemos usar la 
 
 
 #### Conclusiones y futuras mejoras
-Para las siguientes fases (e idealmente para antes de la entrega de esta misma) trataremos de terminar de mover el código a Phaser. Tenemos varios archivos funcionando ya en Phaser, pero no todos.  
-En la próxima fase modificaremos los controles para que se juegue con teclado y ratón, ya que implementaremos vida de los jugadores y disparos. Se usará el ratón para apuntar y los controles actuales para movernos y coger la pelota.  
+Estamos muy contentos con el resultado de esta fase ya que hemos avanzado muchísimo y hemos podido tener todo bien y a tiempo.
+Para futuras versiones se implementarán los WebSockets y trataremos de incluir funcionalidades que hagan el juego más entretenido.
 ¡Esperamos que os gusten las futuras mejoras!
 
 #### Referencias para los backgrounds
