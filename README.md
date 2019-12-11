@@ -135,7 +135,7 @@ Controles y modo de juego indicados en la fase 2.
 Podemos observar en todo momento que está el apartado de ver u ocultar los jugadores que hay en línea.
 
 **Pantalla de selección de nombre**
-![PantalladeNombre](https://i.imgur.com/g6mgIX5.png)
+![PantalladeNombre](https://i.imgur.com/OHfeYc3.png)
 
 **Pantalla de inicio**
 ![PantalladeInicio](https://i.imgur.com/Fl2FFPf.png)
@@ -180,6 +180,9 @@ Para visualizar los jugadores que hay conectados en el momento, podemos usar la 
 
 ![JugadroesConectados](https://i.imgur.com/Zn7dCZY.png)
 
+#### Diagrama de clases
+
+![DiagramaDeClases](https://i.imgur.com/uebhrrY.png)
 
 #### Conclusiones y futuras mejoras
 Estamos muy contentos con el resultado de esta fase ya que hemos avanzado muchísimo y hemos podido tener todo bien y a tiempo.
