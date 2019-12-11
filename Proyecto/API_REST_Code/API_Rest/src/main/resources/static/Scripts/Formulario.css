@@ -1,0 +1,67 @@
+#bloque {
+	background: Plum;
+	border: 1px solid #42464b;
+	border-radius: 6px;
+	height: 230px;
+	margin: 250px auto 0;
+	width: 298px;
+}
+#label {
+	font-family: Kristen ITC, Arial, "Helvetica", sans-serif;
+	font-size: 20px;
+	text-align: center;
+	height: 0px;
+}
+#nombre {
+	text-align: center;
+	font-family: Kristen ITC, Arial, "Helvetica", sans-serif;
+	background: linear-gradient(top, #d6d7d7, #dee0e0);
+	border: 1px solid #a1a3a3;
+	border-radius: 4px;
+	box-shadow: 0 1px #fff;
+	box-sizing: border-box;
+	color: #696969;
+	height: 39px;
+	margin: 31px 0 0 74px;
+	transition: box-shadow 0.3s;
+	width: 150px;
+}
+#boton {
+	width:240px;
+	height:35px;
+	display:block;
+	font-family: Kristen ITC, Arial, "Helvetica", sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	color:#fff;
+	text-decoration:none;
+	text-transform:uppercase;
+	text-align:center;
+	text-shadow:1px 1px 0px #37a69b;
+	padding-top:6px;
+	margin: 29px 0 0 29px;
+	position:relative;
+	cursor:pointer;
+	border: none;  
+	background-color: #37a69b;
+	background-image: linear-gradient(top,#3db0a6,#3111);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius:5px;
+	box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+#boton:active {
+	top:3px;
+	box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
+}   
+#sombra {
+	background: #000;
+	border-radius: 12px 12px 4px 4px;
+	box-shadow: 0 0 20px 10px #000;
+	height: 12px;
+	margin: 30px auto;
+	opacity: 0.2;
+	width: 270px;
+}
+ 
