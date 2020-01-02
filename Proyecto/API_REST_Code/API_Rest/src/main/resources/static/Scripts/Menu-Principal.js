@@ -84,7 +84,7 @@ class MenuPrincipal extends Phaser.Scene {
             switch(this.seleccion) {
                 case 0:
                     this.scale.startFullscreen();
-                    this.scene.start("Menu-Seleccion-Personajes"); 
+                    this.scene.start("Servidores"); 
                     break;
                 case 1:
                     this.scale.startFullscreen();

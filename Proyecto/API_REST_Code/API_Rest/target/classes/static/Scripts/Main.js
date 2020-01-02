@@ -1,4 +1,4 @@
-/* global Phaser, MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, MenuSeleccionPersonajes, MenuSeleccionEscenarios, Juego, Pausa, Final */
+/* global Phaser, MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, MenuSeleccionPersonajes, MenuSeleccionEscenarios, Juego, Pausa, Final */
 
 var config = {
     type: Phaser.AUTO,
@@ -18,7 +18,7 @@ var config = {
         }  
     },
 
-    scene: [MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, MenuSeleccionPersonajes, MenuSeleccionEscenarios, Juego, Pausa, Final]
+    scene: [MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, MenuSeleccionPersonajes, MenuSeleccionEscenarios, Juego, Pausa, Final]
 };
 
 ////VARIABLES GLOBALES////
@@ -34,6 +34,9 @@ var resultado = [0, 0];
 var musicaIntro;
 var musicaMenu;
 var musicaJuego;
+
+//VARIABLES PARTIDA
+var idPartida;
 
 //VARIABLE JUEGO
 var game;
