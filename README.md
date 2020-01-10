@@ -268,11 +268,7 @@ Podemos observar en todo momento que está el apartado de ver u ocultar los juga
 Hemos mantenido las funcionalidades de API REST de la anterior fase y hemos añadido unas cuantas más para la gestión de las partidas. El juego puede mantener 20 partidas a la vez, con 2 jugadores activos en cada partida y más jugadores en la aplicación (aunque, alcanzado el límite de 20 partidas creadas, no podrían crear ninguna más). 
 Al crear una partida, se usa la API REST que controla el juego para hacer un POST de una nueva partida con el usuario que la crea asociado a ella. El jugador 2 busca una partida y se une a la que quiera, haciendo un PUT de ese usuario 2 en la partida correspondiente. Una vez los dos jugadores están en la partida, pasan al menú de selección de personajes, en el que cada uno elige al que quiera. Después de esto, el jugador 2 va a una sala de espera mientras el jugador 1 escoge el mapa y el tiempo de juego. Tras elegir eso, el jugador uno va a esa sala de espera también para sincronizarse y ambos inician la comunicación por WebSocket.
 La comunicación WebSocket consiste en lo siguiente: el jugador 1 se encarga de las varibales globales (funciona como un host para los elementos comunes a los dos jugadores: la bola (con su velocidad y aceleración), el tiempo, el mapa y el marcador) y a su vez envía su posición (también velocidad y aceleración) y si está cogiendo o no la bola. El jugador 2, por su parte, sólo envía su posición y si está cogiendo o no la bola. De esta forma, el jugador 1 se encarga de la logística y el funcionamiento general del juego (ya que si se encargaran los dos habría conflictos).
-En otros aspectos generales del juego, si por ejemplo uno de los dos jugadores se va, cierra la conexión y destruye la partida. Dado este caso, el otro jugador recibirá un mensaje de que el otro jugador ha abandonado la partida y podrá regresar al menú de inicio.
-
-#### Diagrama de clases
-
-![DiagramaDeClasesFase4]()
+En otros aspectos generales del juego, si por ejemplo uno de los dos jugadores se va, cierra la conexión y destruye la partida. Dado este caso, el otro jugador volverá al menú de inicio directamnete.
 
 #### Conclusiones
 Ha sido una fase muy complicada en la que hemos tenido muchos problemas, pero ha sido satisfactorio ver el resultado final.
