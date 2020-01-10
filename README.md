@@ -2,7 +2,7 @@
 ## Game Design Document
 --------------------------------------------------------
 ##### 10 de Enero de 2020
-###### Fase 2
+###### Fase 4
 --------------------------------------------------------
 #### Somos el equipo D, Mega Leyendas:  
 ##### David González Bella (d.gonzalezb.2017@alumnos.urjc.es ; DavidGonzalezBella)
