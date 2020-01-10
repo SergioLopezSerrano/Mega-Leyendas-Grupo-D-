@@ -1,7 +1,7 @@
 # LEGENDS REALM
 ## Game Design Document
 --------------------------------------------------------
-##### 13 de Noviembre de 2019
+##### 10 de Enero de 2020
 ###### Fase 2
 --------------------------------------------------------
 #### Somos el equipo D, Mega Leyendas:  
@@ -24,6 +24,7 @@
 5. Organización
 6. Actualizaciones y novedades de la fase 2
 7. Actualizaciones y novedades de la fase 3
+8. Actualizaciones y novedades de la fase 4
 -------------------------------------------------------
 
 ### 1. Introducción
@@ -210,3 +211,8 @@ música de agua -- (https://www.youtube.com/watch?v=IR243woyHmU)
 música de chuche -- (https://www.youtube.com/watch?v=cli97CymUmQ)
 
 música de inicio -- (https://www.youtube.com/watch?v=5ov6lzqWjmk)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+### 8. Actualizaciones y novedades de la fase 4
