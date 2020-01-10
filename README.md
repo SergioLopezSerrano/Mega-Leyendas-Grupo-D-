@@ -216,3 +216,85 @@ música de inicio -- (https://www.youtube.com/watch?v=5ov6lzqWjmk)
 
 
 ### 8. Actualizaciones y novedades de la fase 4
+#### ¡Modo online!
+Esto significa que sólo hay un jugador en cada máquina, por lo tanto, se usan los controles del jugador 1: WASD para moverse y la Barra Espaciadora para coger la bola.
+
+#### ¡Algunas cosas nuevas!
+###### (Diseños originales hechos por nuestra artista principal, Álex)
+###### (Excepto los mapas y la pelota, aunque esta última tiene un rediseño un poco más curioso)
+Podemos observar en todo momento que está el apartado de ver u ocultar los jugadores que hay en línea.
+
+**Pantalla de selección de nombre**
+![PantalladeNombre](https://i.imgur.com/OHfeYc3.png)
+
+**Pantalla de inicio**
+![PantalladeInicio](https://i.imgur.com/Fl2FFPf.png)
+
+**Menú de selección**
+![MenuSeleccion](https://i.imgur.com/7IamQ3d.png)
+
+**Menú de Controles actualizado**
+![MenuControlesJuegoOnline]()
+
+**Menú de Créditos**
+![MenuCreditos](https://i.imgur.com/RxidFUa.png)
+
+**Pantalla para crear partida o unirse a ella**
+![PantallaCrearUnir]()
+
+**Sala de espera una vez has creado la partida**
+![J1Esperando]()
+
+**Pantalla para seleccionar una partida disponible**
+![SeleccionarPartida]()
+
+**Menú de selección de personajes para el jugador 1**
+![SeleccionPersonajesJ1]()
+
+**Menú de selección de personajes para el jugador 1**
+![SeleccionPersonajesJ1]()
+
+**Menú de selección de mapa**
+![Mapas](https://i.imgur.com/xtksOmm.png)
+
+**Juego en vivo**
+![Juego](https://i.imgur.com/U8GcAOO.png)
+
+**Final del juego y resultados**
+![FinJuego](https://i.imgur.com/CLXmsJz.png)
+
+#### Mejoras
+¡API REST y WebSockets!
+Hemos mantenido las funcionalidades de API REST de la anterior fase y hemos añadido unas cuantas más para la gestión de las partidas. El juego puede mantener 20 partidas a la vez, con 2 jugadores activos en cada partida y más jugadores en la aplicación (aunque, alcanzado el límite de 20 partidas creadas, no podrían crear ninguna más). 
+Al crear una partida, se usa la API REST que controla el juego para hacer un POST de una nueva partida con el usuario que la crea asociado a ella. El jugador 2 busca una partida y se une a la que quiera, haciendo un PUT de ese usuario 2 en la partida correspondiente. Una vez los dos jugadores están en la partida, pasan al menú de selección de personajes, en el que cada uno elige al que quiera. Después de esto, el jugador 2 va a una sala de espera mientras el jugador 1 escoge el mapa y el tiempo de juego. Tras elegir eso, el jugador uno va a esa sala de espera también para sincronizarse y ambos inician la comunicación por WebSocket.
+La comunicación WebSocket consiste en lo siguiente: el jugador 1 se encarga de las varibales globales (funciona como un host para los elementos comunes a los dos jugadores: la bola (con su velocidad y aceleración), el tiempo, el mapa y el marcador) y a su vez envía su posición (también velocidad y aceleración) y si está cogiendo o no la bola. El jugador 2, por su parte, sólo envía su posición y si está cogiendo o no la bola. De esta forma, el jugador 1 se encarga de la logística y el funcionamiento general del juego (ya que si se encargaran los dos habría conflictos).
+En otros aspectos generales del juego, si por ejemplo uno de los dos jugadores se va, cierra la conexión y destruye la partida. Dado este caso, el otro jugador recibirá un mensaje de que el otro jugador ha abandonado la partida y podrá regresar al menú de inicio.
+
+#### Diagrama de clases
+
+![DiagramaDeClasesFase4]()
+
+#### Conclusiones
+Ha sido una fase muy complicada en la que hemos tenido muchos problemas, pero ha sido satisfactorio ver el resultado final.
+
+#### Referencias para los backgrounds
+Agua -- Water Background by FireKnight90 on DeviantArt -- (https://www.deviantart.com/fireknight90/art/Water-Background-464156203)
+
+Fuego -- Background firewall 03 by AStoKo on DeviantArt -- (https://www.deviantart.com/astoko/art/Background-firewall-03-709613940)
+
+Bosque -- Cartoon Forest Scene 02 3D model -- (https://www.cgtrader.com/3d-models/exterior/landscape/cartoon-forest-scene-02)
+
+Chuche -- Dulces fondo de pantalla - dulces fondo de pantalla (40197064) - fanpop (http://es.fanpop.com/clubs/candy/images/40197064/title/candy-wallpapers-wallpaper)
+
+#### Referencias para la música
+música de fuego -- (https://www.youtube.com/watch?v=DvOmz2jvyGI)
+
+música de bosque -- (https://www.youtube.com/watch?v=wNMfmoNfJb8)
+
+música de los menús -- (https://www.youtube.com/watch?v=_WnXWy5rfSU)
+
+música de agua -- (https://www.youtube.com/watch?v=IR243woyHmU)
+
+música de chuche -- (https://www.youtube.com/watch?v=cli97CymUmQ)
+
+música de inicio -- (https://www.youtube.com/watch?v=5ov6lzqWjmk)
