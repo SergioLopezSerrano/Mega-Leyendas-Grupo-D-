@@ -90,10 +90,10 @@ class Juego extends Phaser.Scene {
         this.jugador[0].setCollideWorldBounds(true);
         this.jugador[1].setCollideWorldBounds(true);
         this.bola.setCollideWorldBounds(true);
-        this.physics.add.collider(this.jugador[0], this.bloques, this.colisionJugador1Bloques);
-        this.physics.add.collider(this.jugador[1], this.bloques, this.colisionJugador2Bloques);
+        this.physics.add.collider(this.jugador[0], this.bloques, /*this.colisionJugador1Bloques*/);
+        this.physics.add.collider(this.jugador[1], this.bloques, /*this.colisionJugador2Bloques*/);
         this.physics.add.collider(this.jugador[0], this.jugador[1], this.colisionJugador1Jugador2);
-        this.physics.add.collider(this.bola, this.bloques, this.colisionBolaBloques);
+        this.physics.add.collider(this.bola, this.bloques, /*this.colisionBolaBloques*/);
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.teclas1Enabled = true;
@@ -217,12 +217,18 @@ class Juego extends Phaser.Scene {
         if(this.Jugador1BolaCogida || (this.Jugador1BolaTocando && this.teclaSpacePulsada)){
             this.bola.setVelocity(this.jugador[0].body.velocity.x, this.jugador[0].body.velocity.y);
             this.Jugador1BolaCogida = true;
+            this.jugador[0].setMaxVelocity(300, 300);
+        } else {
+        	this.jugador[0].setMaxVelocity(400, 400);
         };
         this.teclaSpacePulsada = false;
         
         if(this.Jugador2BolaCogida || (this.Jugador2BolaTocando && this.teclaCeroPulsada)){
             this.bola.setVelocity(this.jugador[1].body.velocity.x, this.jugador[1].body.velocity.y);
             this.Jugador2BolaCogida = true;
+            this.jugador[1].setMaxVelocity(300, 300);
+        } else {
+        	this.jugador[1].setMaxVelocity(400, 400);
         };
         this.teclaCeroPulsada = false;
         

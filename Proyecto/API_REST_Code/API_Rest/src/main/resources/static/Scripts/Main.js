@@ -1,4 +1,4 @@
-/* global Phaser, MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, MenuSeleccionPersonajes, MenuSeleccionEscenarios, Juego, Pausa, Final */
+/* global Phaser, MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, UnirsePartida, EstablecerWebsocket, MenuSeleccionPersonajes1, MenuSeleccionPersonajes2, MenuSeleccionEscenarios, SalaEspera, Juego1, Juego2, Pausa, Final */
 
 var config = {
     type: Phaser.AUTO,
@@ -18,32 +18,37 @@ var config = {
         }  
     },
 
-    scene: [MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, MenuSeleccionPersonajes, MenuSeleccionEscenarios, Juego, Pausa, Final]
+    scene: [MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, UnirsePartida, EstablecerWebsocket, MenuSeleccionPersonajes1, MenuSeleccionPersonajes2, MenuSeleccionEscenarios, SalaEspera, Juego1, Juego2, Pausa, Final]
 };
-
 ////VARIABLES GLOBALES////
-var that;
+var that = null;
 var right = [false, false];
 var left = [false, false];
 var up = [false, false];
 var down = [false, false];
-var tiempo = 0;
-var personajeJugador = [0, 0];
+var tiempo = 30;
+var personajeJugador = [1, 1];
 var escenario = 0;
 var resultado = [0, 0];
 var musicaIntro;
 var musicaMenu;
 var musicaJuego;
 
-//VARIABLES PARTIDA
-var idPartida;
+//Variable websocket
+var connection = null;
 
 //VARIABLE JUEGO
 var game;
 
 //VARIABLES USUARIO
-var idJugador;
-var nombreJugador;
+var idJugador = null;
+var nombreJugador = null;
+var idPartida = null;
+var idJugadorPartida = null;
+var idOtroJugador = null;
+var nombreOtroJugador = null;
+
+var otroJugadorPreparado = false;
 
 var usuariosVisibles = false;
 

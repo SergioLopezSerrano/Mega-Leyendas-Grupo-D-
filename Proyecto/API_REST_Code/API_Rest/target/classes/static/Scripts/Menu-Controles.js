@@ -55,6 +55,14 @@ class MenuControles extends Phaser.Scene {
         //FONDO
         this.fondo = this.add.image(config.scale.width / 2, config.scale.height / 2, "MenuControles-Fondo");
         
+        //BOTON REGRESO
+        this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Regreso").setInteractive();
+        this.botonRegreso.setDepth(2);
+        this.botonRegreso.on("pointerdown", function(){ 
+        	that.scale.startFullscreen();
+            that.scene.start("Menu-Principal"); 
+        });
+        
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(event){
             this.scale.startFullscreen();

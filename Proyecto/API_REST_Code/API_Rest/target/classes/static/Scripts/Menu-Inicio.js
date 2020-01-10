@@ -15,6 +15,10 @@ class MenuInicio extends Phaser.Scene {
         this.load.image("MenuPrincipal-Controles", "Sources/Menu-Principal/Controles.png"); 
         this.load.image("MenuPrincipal-Creditos", "Sources/Menu-Principal/Creditos.png"); 
         this.load.image("MenuPrincipal-Salir", "Sources/Menu-Principal/Salir.png"); 
+        this.load.image("MenuPrincipal-Selector", "Sources/Menu-Principal/Selector.png"); 
+        this.load.image("MenuPrincipal-Boton-Regreso", "Sources/Menu-Principal/Boton-Regreso.png"); 
+        this.load.image("MenuPrincipal-Boton-Abandonar-Partida", "Sources/Menu-Principal/Boton-Abandonar-Partida.png");
+        this.load.image("MenuPrincipal-Boton-Recargar", "Sources/Menu-Principal/Boton-Recargar.png");
         
         ////MENU CONTROLES////
         this.load.image("MenuControles-Fondo", "Sources/Menu-Controles/Fondo.png"); 
@@ -57,9 +61,19 @@ class MenuInicio extends Phaser.Scene {
         this.load.image("MenuSeleccionEscenarios-Mapa-Random-Miniatura", "Sources/Menu-Seleccion-Escenarios/Mapa-Random-Miniatura.png"); //MAPA RANDOM MINIATURA
         this.load.image("MenuSeleccionEscenarios-Cambiar-Tiempo", "Sources/Menu-Seleccion-Escenarios/Cambiar-Tiempo.png");       //CAMBIAR TIEMPO
         
-        //SERVIDORES
+        ////SERVIDORES////
+        this.load.image("Servidores-Fondo", "Sources/Servidores/Fondo.png");   
         this.load.image("Servidores-BotonCrearServidor", "Sources/Servidores/BotonCrearServidor.png");   //BOTON CREAR SERVIDOR
         this.load.image("Servidores-BotonUnirse", "Sources/Servidores/BotonUnirse.png");   //BOTON UNIRSE A PARTIDA
+        
+        ////ESPERANDO JUGADOR////
+        this.load.image("Esperando-Jugador-Fondo", "Sources/Esperando-Jugador/Fondo.png");   
+        
+        ////UNIRSE PARTIDA////
+        this.load.image("Unirse-Partida-Fondo", "Sources/Unirse-Partida/Fondo.png");   
+        this.load.image("Unirse-Partida-Partida", "Sources/Unirse-Partida/Partida.png");   
+        this.load.image("Unirse-Partida-Boton-Arriba", "Sources/Unirse-Partida/Boton-Arriba.png");
+        this.load.image("Unirse-Partida-Boton-Abajo", "Sources/Unirse-Partida/Boton-Abajo.png");
         
         ////JUEGO////
         this.load.image("Juego-Mapa-1", "Sources/Juego/Mapa-1.png");
@@ -124,7 +138,6 @@ class MenuInicio extends Phaser.Scene {
         this.numeroUsuariosConectados.setDepth(10);
         this.numeroUsuariosConectados.visible = !usuariosVisibles;
         
-        
         //ACTUALIZAR LOS USUARIOS
         this.time.addEvent({
             delay: 100,
@@ -147,9 +160,15 @@ class MenuInicio extends Phaser.Scene {
         },this);
         
         //MUSICA
+        if (musicaMenu != null) {
+        	musicaMenu.stop();
+        };
+        if (musicaJuego != null) {
+        	musicaJuego.stop();
+        };
         musicaIntro = this.sound.add("Intro");
         musicaMenu = this.sound.add("Menu");
-        musicaJuego = this.sound.add("Juego-Mapa-1");
+        musicaJuego = this.sound.add("Juego-Mapa-1");  
         musicaIntro.play();
 
         ////VARIABLES OBJETOS/IMAGENES////
@@ -159,15 +178,21 @@ class MenuInicio extends Phaser.Scene {
         this.fondo.setDepth(0);
         
         //TEXTO
-        this.texto = this.add.text(config.scale.width / 2, config.scale.height - 175, "Pulsa espacio para empezar");
+        this.texto = this.add.text(config.scale.width / 2, config.scale.height - 175, "Pulsa cualquier tecla para empezar");
         this.texto.setOrigin(0.5, 0.5);
         this.texto.setFont("Arial Black");
         this.texto.setFontSize("60px");
         this.texto.setFill("White");
         this.texto.setStroke("Purple", 5);
         
+        //ACTIVAR DETECTOR DE EVENTOS DE RATON
+        this.input.on("pointerdown", function(){
+        	that.scale.startFullscreen();
+        	that.scene.start("Menu-Principal"); 
+         });
+        
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
-        this.input.keyboard.on("keydown-" + "SPACE", function(event){
+        this.input.keyboard.on("keydown", function(){
             this.scale.startFullscreen();
             this.scene.start("Menu-Principal"); 
         },this);

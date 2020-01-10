@@ -65,7 +65,65 @@ class MenuPrincipal extends Phaser.Scene {
         //SELECION
         this.selector = this.add.image(config.scale.width / 2, config.scale.height / 2, "MenuPrincipal-Jugar");
         
+        //BOTON REGRESO
+        this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Regreso").setInteractive();
+        this.botonRegreso.setDepth(2);
+        this.botonRegreso.on("pointerdown", function(){ 
+        	that.scale.startFullscreen();
+            that.scene.start("Menu-Inicio"); 
+        });
+        
+        //SELECTORES RATON
+        this.selector1 = this.add.sprite(config.scale.width / 2 - 30, config.scale.height / 2 - 120, "MenuPrincipal-Selector").setInteractive();
+        this.selector1.on("pointerover", function(){
+        	that.seleccion = 0;
+        });
+        this.selector1.on("pointerdown", function(){
+        	that.scale.startFullscreen();
+        	that.scene.start("Servidores"); 
+        	//that.scene.start("Menu-Seleccion-Personajes-1");
+        });
+        this.selector2 = this.add.sprite(config.scale.width / 2 - 30, config.scale.height / 2 + 2, "MenuPrincipal-Selector").setInteractive();
+        this.selector2.on("pointerover", function(){
+        	that.seleccion = 1;
+        });
+        this.selector2.on("pointerdown", function(){
+        	that.scale.startFullscreen();
+        	that.scene.start("Menu-Controles"); 
+        });
+        this.selector3 = this.add.sprite(config.scale.width / 2 - 30, config.scale.height / 2 + 125, "MenuPrincipal-Selector").setInteractive();
+        this.selector3.on("pointerover", function(){
+        	that.seleccion = 2;
+        });
+        this.selector3.on("pointerdown", function(){
+        	that.scale.startFullscreen();
+        	that.scene.start("Menu-Creditos"); 
+        });
+        this.selector4 = this.add.sprite(config.scale.width / 2 - 30, config.scale.height / 2 + 250, "MenuPrincipal-Selector").setInteractive();
+        this.selector4.on("pointerover", function(){
+        	that.seleccion = 3;
+        });
+        this.selector4.on("pointerdown", function(){
+        	that.scale.stopFullscreen();
+        	//deleteUser(idJugador);
+            var user = {
+	        		id: idJugador,
+	        		name: nombreJugador,
+	        		connected: false,
+	        		idGame: 0,
+	        		idPlayer: 0
+    	    };
+            putUser(user);
+            //putGame(idPartida, user);
+            deleteGame(idPartida);
+            game.destroy(true);
+        });
+        
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
+        this.input.keyboard.on("keydown-" + "V", function(){
+            that.scale.startFullscreen();
+            that.scene.start("Menu-Inicio"); 
+        },this);
         this.input.keyboard.on("keydown-" + "W", function(event){
             this.scale.startFullscreen();
             this.seleccion--;
@@ -85,6 +143,7 @@ class MenuPrincipal extends Phaser.Scene {
                 case 0:
                     this.scale.startFullscreen();
                     this.scene.start("Servidores"); 
+                    //this.scene.start("Menu-Seleccion-Personajes-1");
                     break;
                 case 1:
                     this.scale.startFullscreen();
@@ -98,11 +157,15 @@ class MenuPrincipal extends Phaser.Scene {
                     this.scale.stopFullscreen();
                     //deleteUser(idJugador);
                     var user = {
-	            		id: idJugador,
-	    	            name: nombreJugador,
-	    	            connected: false
+        	        		id: idJugador,
+        	        		name: nombreJugador,
+        	        		connected: false,
+        	        		idGame: 0,
+        	        		idPlayer: 0
             	    };
                     putUser(user);
+                    //putGame(idPartida, user);
+                    deleteGame(idPartida);
                     game.destroy(true);
                     break;
             };

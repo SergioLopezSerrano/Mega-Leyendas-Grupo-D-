@@ -22,23 +22,23 @@ public class UserController {
 	
 	Map<Long, User> users = new ConcurrentHashMap<>(); 
 	
-	@GetMapping
-	public Collection<User> users() {
-		return users.values();
-	}
-	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public User newUser(@RequestBody User user) {
-
+	public User newUser(@RequestBody String name) {
+		
+		name = name.substring(1, name.length() - 1);
+		
 		long id = 1;
 		User usuario;
 		boolean encontrado = false;
+		
 		do {
+			
 			usuario = users.get(id);
+			
 			if (usuario != null) {
 				if (!usuario.getConnected()) {
-					if (usuario.getName().equals(user.getName())) {
+					if (usuario.getName().equals(name)) {
 						encontrado = true;
 					};
 				};
@@ -48,11 +48,35 @@ public class UserController {
 			
 			id = id + 1;
 		}while(!encontrado);
+		
 		id = id - 1;
-		user.setId(id);
-		users.put(id, user);
+		usuario = new User();
+		usuario.setId(id);
+		usuario.setName(name);
+		usuario.setConnected(true);
+		usuario.setIdGame(0);
+		usuario.setIdPlayer(0);
 
-		return user;
+		users.put(id, usuario);
+
+		return usuario;
+	}
+	
+	@GetMapping
+	public Collection<User> users() {
+		return users.values();
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<User> getUser(@PathVariable long id) {
+
+		User savedUser = users.get(id);
+
+		if (savedUser != null) {
+			return new ResponseEntity<>(savedUser, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	@PutMapping("/{id}")
@@ -70,29 +94,16 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<User> getUser(@PathVariable long id) {
-
-		User savedUser = users.get(id);
-
-		if (savedUser != null) {
-			return new ResponseEntity<>(savedUser, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-	}
-	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<User> deleteUser(@PathVariable long id) {
 
-		User savedUser = users.get(id);
+		User user = users.get(id);
 
-		if (savedUser != null) {
-			users.remove(savedUser.getId());
-			return new ResponseEntity<>(savedUser, HttpStatus.OK);
+		if (user != null) {
+			users.remove(user.getId());
+			return new ResponseEntity<>(user, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
 }

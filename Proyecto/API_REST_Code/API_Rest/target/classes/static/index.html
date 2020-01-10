@@ -16,9 +16,14 @@
         <script type="text/javascript" src="Scripts/Menu-Creditos.js"></script>  
         <script type="text/javascript" src="Scripts/Servidores.js"></script> 
         <script type="text/javascript" src="Scripts/Esperando-Jugador.js"></script> 
-        <script type="text/javascript" src="Scripts/Menu-Seleccion-Personajes.js"></script>
+        <script type="text/javascript" src="Scripts/Unirse-Partida.js"></script> 
+        <script type="text/javascript" src="Scripts/Establecer-Websocket.js"></script>
+        <script type="text/javascript" src="Scripts/Menu-Seleccion-Personajes-1.js"></script>
+        <script type="text/javascript" src="Scripts/Menu-Seleccion-Personajes-2.js"></script>
         <script type="text/javascript" src="Scripts/Menu-Seleccion-Escenarios.js"></script>
-        <script type="text/javascript" src="Scripts/Juego.js"></script>
+        <script type="text/javascript" src="Scripts/Sala-Espera.js"></script>
+        <script type="text/javascript" src="Scripts/Juego-1.js"></script>
+        <script type="text/javascript" src="Scripts/Juego-2.js"></script>
         <script type="text/javascript" src="Scripts/Pausa.js"></script>
         <script type="text/javascript" src="Scripts/Final.js"></script>
         <script type="text/javascript" src="Scripts/Main.js"></script>   
@@ -37,14 +42,7 @@
 		
 	    function boton() {
 	    	
-	    	var value = document.getElementById("nombre").value;
-	     	
-	        var user = {
-	            name: value,
-	            connected: true
-	        };
-	    	
-	        postUser(user);
+	        postUser();
 	        //putUser(user);
 	        //getUsers();
 	        //getUser(1);
@@ -58,20 +56,86 @@
 	    };
 	    
 	    window.onclick = function () {
-	    	that.scale.startFullscreen();
+	    	if (that != null) {
+	    		//that.scale.startFullscreen();
+	    	};
     	}; 	
     	
     	window.onbeforeunload = preguntarAntesDeSalir;
         
-        function preguntarAntesDeSalir()
-        {
-        	//deleteUser(idJugador);
+        function preguntarAntesDeSalir() {         
+          	//deleteUser(idJugador);
+            if (idJugadorPartida == 1) {
+            	deleteGame(idPartida);
+            };
             var user = {
-        		id: idJugador,
-	            name: nombreJugador,
-	            connected: false
+	        		id: idJugador,
+	        		name: nombreJugador,
+	        		connected: true,
+	        		idGame: 0,
+	        		idPlayer: 0
     	    };
             putUser(user);
+          	//putGame(idPartida, user);
+        	otroJugadorPreparado = false;
+        	if (connection != null) {
+            	connection.onopen = function () {
+            	};
+            	connection.onerror = function() {
+                };
+            	connection.onmessage = function() {
+                };
+                if (idJugadorPartida == 1) {
+                	var user = {
+                			idJugadorPartida: idJugadorPartida,
+                			primerContacto: false,
+                			preparado: false,
+                			finalJuego: false,
+                			personaje: null,
+                			escenario : null,
+                			tiempo: null,
+                			marcador1: null,
+                			marcador2: null,
+                			posicionX: null,
+                			posicionY: null,
+                			velocidadX: null,
+                			velocidadY: null,
+                			aceleracionX: null,
+                			aceleracionY: null,
+                			posicionPelotaX: null,
+                			posicionPelotaY: null,
+                			velocidadPelotaX: null,
+                			velocidadPelotaY: null,
+                			aceleracionPelotaX: null,
+                			aceleracionPelotaY: null,
+                			Jugador1BolaTocando: null,
+                			Jugador1BolaCogida: null	
+                	};
+                };
+                if (idJugadorPartida == 2) {
+                	var user = {
+                			idJugadorPartida: idJugadorPartida,
+                			primerContacto: false,
+                			preparado: false,
+                			personaje: null,
+                			posicionX: null,
+                			posicionY: null,
+                			velocidadX: null,
+                			velocidadY: null,
+                			aceleracionX: null,
+                			aceleracionY: null,
+                			posicionPelotaX: null,
+                			posicionPelotaY: null,
+                			velocidadPelotaX: null,
+                			velocidadPelotaY: null,
+                			aceleracionPelotaX: null,
+                			aceleracionPelotaY: null,
+                			Jugador2BolaTocando: null,
+                			Jugador2BolaCogida: null	
+                	};
+                };
+            	connection.send(JSON.stringify(user)); 
+        	};
         };
 	    
 	    </script>

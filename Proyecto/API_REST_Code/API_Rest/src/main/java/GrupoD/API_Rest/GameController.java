@@ -22,31 +22,38 @@ public class GameController {
 
 	Map<Long, Game> games = new ConcurrentHashMap<>();
 	
-	@GetMapping
-	public Collection<Game> games() {
-		return games.values();
-	}
-	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Game newGame(@RequestBody Game game) {
-
+	public Game newGame(@RequestBody User user) {
+		
 		long id = 1;
 		Game juego;
 		boolean encontrado = false;
+		
 		do {
 			juego = games.get(id);
 			if (juego == null) {
-				encontrado = true; //se ha encontrado una partida vacia
+				encontrado = true; 
 			};
 			
 			id = id + 1;
 		}while(!encontrado);
+		
 		id = id - 1;
+		juego = new Game();
 		juego.setId(id);
-		games.put(id, game);
-
-		return game;
+		user.setIdGame(id);
+		user.setIdPlayer(1);
+		juego.setUser1(user);
+		juego.setUser2(null);
+		games.put(id, juego);
+		
+		return juego;
+	}
+	
+	@GetMapping
+	public Collection<Game> games() {
+		return games.values();
 	}
 	
 	@GetMapping("/{id}")
@@ -56,6 +63,38 @@ public class GameController {
 
 		if (savedGame != null) {
 			return new ResponseEntity<>(savedGame, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<Game> updateGame(@PathVariable long id, @RequestBody User user) {
+			
+		Game savedGame = games.get(id);
+
+		if (savedGame != null) {
+			
+			user.setIdGame(id);
+			user.setIdPlayer(2);
+			savedGame.setUser2(user);
+			
+			games.put(id, savedGame);
+							
+			return new ResponseEntity<>(savedGame, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Game> deleteUser(@PathVariable long id) {
+
+		Game game = games.get(id);
+
+		if (game != null) {
+			games.remove(game.getId());
+			return new ResponseEntity<>(game, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

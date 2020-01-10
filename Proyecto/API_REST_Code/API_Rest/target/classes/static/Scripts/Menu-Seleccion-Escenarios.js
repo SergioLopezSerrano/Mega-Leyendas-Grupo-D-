@@ -56,26 +56,99 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         this.fondo = this.add.image(config.scale.width / 2, config.scale.height / 2, "MenuSeleccionEscenarios-Fondo");
         this.fondo.setDepth(0);
         
+        //BOTON REGRESO
+        this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Regreso").setInteractive();
+        this.botonRegreso.setDepth(2);
+        this.botonRegreso.on("pointerdown", function(){ 
+        	that.scale.startFullscreen();
+            that.scene.start("Menu-Seleccion-Personajes-1"); 
+        });
+        
+        //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
+        this.input.keyboard.on("keydown-" + "V", function(){
+        	that.scale.startFullscreen();
+            that.scene.start("Menu-Seleccion-Personajes-1"); 
+        },this);
+        
         //SELECTORES DE ESCENARIOS     
         this.mapasSimbolo = [];
-        this.mapasSimbolo[0] = this.physics.add.staticImage(config.scale.width / 2 - 600, config.scale.height / 2 + 200, "MenuSeleccionEscenarios-Mapa-1");
+        this.mapasSimbolo[0] = this.physics.add.staticImage(config.scale.width / 2 - 600, config.scale.height / 2 + 200, "MenuSeleccionEscenarios-Mapa-1").setInteractive();
         this.mapasSimbolo[0].setDepth(1);
-        this.mapasSimbolo[1] = this.physics.add.staticImage(config.scale.width / 2 - 300, config.scale.height / 2 + 300, "MenuSeleccionEscenarios-Mapa-2");
+        this.mapasSimbolo[0].on("pointerover", function(){
+        	that.puntero.setPosition(that.mapasSimbolo[0].x, that.mapasSimbolo[0].y);
+        	that.puntero.setVelocity(0, 0);
+        });
+        this.mapasSimbolo[0].on("pointerdown", function(){
+        	that.avanzarEscena();
+        });
+        this.mapasSimbolo[1] = this.physics.add.staticImage(config.scale.width / 2 - 300, config.scale.height / 2 + 300, "MenuSeleccionEscenarios-Mapa-2").setInteractive();
         this.mapasSimbolo[1].setDepth(1);
-        this.mapasSimbolo[2] = this.physics.add.staticImage(config.scale.width / 2 + 300, config.scale.height / 2 + 300, "MenuSeleccionEscenarios-Mapa-3");
+        this.mapasSimbolo[1].on("pointerover", function(){
+        	that.puntero.setPosition(that.mapasSimbolo[1].x, that.mapasSimbolo[1].y);
+        	that.puntero.setVelocity(0, 0);
+        });
+        this.mapasSimbolo[1].on("pointerdown", function(){
+        	that.avanzarEscena();
+        });
+        this.mapasSimbolo[2] = this.physics.add.staticImage(config.scale.width / 2 + 300, config.scale.height / 2 + 300, "MenuSeleccionEscenarios-Mapa-3").setInteractive();
         this.mapasSimbolo[2].setDepth(1);
-        this.mapasSimbolo[3] = this.physics.add.staticImage(config.scale.width / 2 + 600, config.scale.height / 2 + 200, "MenuSeleccionEscenarios-Mapa-4");
+        this.mapasSimbolo[2].on("pointerover", function(){
+        	that.puntero.setPosition(that.mapasSimbolo[2].x, that.mapasSimbolo[2].y);
+        	that.puntero.setVelocity(0, 0);
+        });
+        this.mapasSimbolo[2].on("pointerdown", function(){
+        	that.avanzarEscena();
+        });
+        this.mapasSimbolo[3] = this.physics.add.staticImage(config.scale.width / 2 + 600, config.scale.height / 2 + 200, "MenuSeleccionEscenarios-Mapa-4").setInteractive();
         this.mapasSimbolo[3].setDepth(1);
-        this.mapasSimbolo[4] = this.physics.add.staticImage(config.scale.width / 2, config.scale.height / 2 + 200, "MenuSeleccionEscenarios-Mapa-Random");
+        this.mapasSimbolo[3].on("pointerover", function(){
+        	that.puntero.setPosition(that.mapasSimbolo[3].x, that.mapasSimbolo[3].y);
+        	that.puntero.setVelocity(0, 0);
+        });
+        this.mapasSimbolo[3].on("pointerdown", function(){
+        	that.avanzarEscena();
+        });
+        this.mapasSimbolo[4] = this.physics.add.staticImage(config.scale.width / 2, config.scale.height / 2 + 200, "MenuSeleccionEscenarios-Mapa-Random").setInteractive();
         this.mapasSimbolo[4].setDepth(1);
+        this.mapasSimbolo[4].on("pointerover", function(){
+        	that.puntero.setPosition(that.mapasSimbolo[4].x, that.mapasSimbolo[4].y);
+        	that.puntero.setVelocity(0, 0);
+        });
+        this.mapasSimbolo[4].on("pointerdown", function(){
+        	that.avanzarEscena();
+        });
         
         //MINIATURA DE ESCENARIO
         this.mapa = this.add.image(config.scale.width / 2, config.scale.height / 2 - 50, "MenuSeleccionEscenarios-Mapa-Miniatura");
         this.mapa.setDepth(1);
         
         //CAMBIAR TIEMPO    
-        this.cambiarTiempo = this.physics.add.staticImage(config.scale.width / 2, config.scale.height / 2 - 300, "MenuSeleccionEscenarios-Cambiar-Tiempo");
+        this.cambiarTiempo = this.physics.add.staticImage(config.scale.width / 2, config.scale.height / 2 - 300, "MenuSeleccionEscenarios-Cambiar-Tiempo").setInteractive();
         this.cambiarTiempo.setDepth(1);
+        this.cambiarTiempo.on("pointerover", function(){
+        	that.puntero.setPosition(that.cambiarTiempo.x, that.cambiarTiempo.y);
+        	that.puntero.setVelocity(0, 0);
+        });
+        this.cambiarTiempo.on("pointerdown", function(){
+        	switch (that.tiemp) {
+	            case 30:
+	                tiempo = 60;
+	                that.tiemp = 60;
+	                break;
+	            case 60:
+	                tiempo = 90;
+	                that.tiemp = 90;
+	                break;
+	            case 90:
+	                tiempo = 120;
+	                that.tiemp = 120;
+	                break;
+	            case 120:
+	                tiempo = 30;
+	                that.tiemp = 30;
+	                break;
+        	};
+        });
         
         //PUNTERO JUGADOR
         this.puntero = this.physics.add.image(config.scale.width / 2, config.scale.height / 2, "MenuSeleccionEscenarios-Puntero-Jugador");
@@ -92,7 +165,7 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         this.textoTiempo.setStroke("Purple", 5);
         
         //TEXTO
-        this.texto = this.add.text(config.scale.width / 2, config.scale.height / 2 + 450, "Jugador 1 selecciona un mapa");
+        this.texto = this.add.text(config.scale.width / 2, config.scale.height / 2 + 450, "Selecciona un mapa");
         this.texto.setOrigin(0.5, 0.5);
         this.texto.setFont("Arial Black");
         this.texto.setFontSize("70px");
@@ -104,7 +177,7 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         
         //VARIABLE SELECCION DE TIEMPO
         this.tiempTocando = false;
-        this.tiemp = 0;
+        this.tiemp = 30;
         
         //ACTIVAR DETECTORES DE SOLAPAMIENTO (COLISIONES SIN FISICAS)
         this.colisioneJugador = [];
@@ -194,10 +267,10 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
                     this.tiemp = 90;
                     break;
                 case 90:
-                    tiempo = 0;
-                    this.tiemp = 0;
+                    tiempo = 120;
+                    this.tiemp = 120;
                     break;
-                case 0:
+                case 120:
                     tiempo = 30;
                     this.tiemp = 30;
                     break;
@@ -289,8 +362,8 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
             case 90:
                 this.textoTiempo.setText("90");
                 break;
-            case 0:
-                this.textoTiempo.setText("Infinito");
+            case 120:
+                this.textoTiempo.setText("120");
                 break;
         };
         
@@ -362,6 +435,6 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
             up[i] = false;
             down[i] = false;
         };
-        that.scene.start("Juego"); 
+        that.scene.start("Sala-Espera"); 
     };
 };
