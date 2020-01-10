@@ -57,6 +57,10 @@ class MenuInicio extends Phaser.Scene {
         this.load.image("MenuSeleccionEscenarios-Mapa-Random-Miniatura", "Sources/Menu-Seleccion-Escenarios/Mapa-Random-Miniatura.png"); //MAPA RANDOM MINIATURA
         this.load.image("MenuSeleccionEscenarios-Cambiar-Tiempo", "Sources/Menu-Seleccion-Escenarios/Cambiar-Tiempo.png");       //CAMBIAR TIEMPO
         
+        //SERVIDORES
+        this.load.image("Servidores-BotonCrearServidor", "Sources/Servidores/BotonCrearServidor.png");   //BOTON CREAR SERVIDOR
+        this.load.image("Servidores-BotonUnirse", "Sources/Servidores/BotonUnirse.png");   //BOTON UNIRSE A PARTIDA
+        
         ////JUEGO////
         this.load.image("Juego-Mapa-1", "Sources/Juego/Mapa-1.png");
         this.load.image("Juego-Mapa-2", "Sources/Juego/Mapa-2.png");

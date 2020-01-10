@@ -6,30 +6,35 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+        <link type="text/css" rel="stylesheet" href="Scripts/Formulario.css"/>
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
         <script type="text/javascript" src="Scripts/phaser.js"></script> 
         <script type="text/javascript" src="Scripts/PeticionesHTTP.js"></script> 
         <script type="text/javascript" src="Scripts/Menu-Inicio.js"></script>   
         <script type="text/javascript" src="Scripts/Menu-Principal.js"></script> 
         <script type="text/javascript" src="Scripts/Menu-Controles.js"></script> 
-        <script type="text/javascript" src="Scripts/Menu-Creditos.js"></script> 
+        <script type="text/javascript" src="Scripts/Menu-Creditos.js"></script>  
+        <script type="text/javascript" src="Scripts/Servidores.js"></script> 
+        <script type="text/javascript" src="Scripts/Esperando-Jugador.js"></script> 
         <script type="text/javascript" src="Scripts/Menu-Seleccion-Personajes.js"></script>
         <script type="text/javascript" src="Scripts/Menu-Seleccion-Escenarios.js"></script>
         <script type="text/javascript" src="Scripts/Juego.js"></script>
         <script type="text/javascript" src="Scripts/Pausa.js"></script>
         <script type="text/javascript" src="Scripts/Final.js"></script>
         <script type="text/javascript" src="Scripts/Main.js"></script>   
-        
+
     </head>
     
-    <body>
-    	<div style=" text-align: center; line-height: 800px" id="div">
-	    	<label id="label" for="nombre">Escribe tu nombre</label>
-	        <input id="nombre" type="text" placeholder="Nombre">
-	        <button id="boton" type="button" OnClick="boton()">Comenzar</button>
+    <body background="Sources/Formulario/Fondo.png">
+    
+		<div id="bloque">
+			<p id="label">Introduce tu nombre</p>
+		    <input id="nombre" type="text" placeholder="Nombre">
+		    <input id="boton" type="submit" value="Comenzar" OnClick="boton()">
 		</div>
+		<div id="sombra" class="shadow"></div>
 	    <script>
-
+		
 	    function boton() {
 	    	
 	    	var value = document.getElementById("nombre").value;
@@ -45,9 +50,8 @@
 	        //getUser(1);
 	        //deleteUser(1);
 	        
-	    	document.getElementById("label").remove();
-	    	document.getElementById("nombre").remove();
-	    	document.getElementById("boton").remove();
+	    	document.getElementById("bloque").remove();
+	    	document.getElementById("sombra").remove();
 	    	
 	    	game = new Phaser.Game(config); 
 	    	game.scale.startFullscreen();
