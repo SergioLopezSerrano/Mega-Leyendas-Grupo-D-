@@ -255,13 +255,13 @@ Podemos observar en todo momento que está el apartado de ver u ocultar los juga
 ![SeleccionPersonajesJ1]()
 
 **Menú de selección de mapa**
-![Mapas](https://i.imgur.com/xtksOmm.png)
+![Mapas2]()
 
 **Juego en vivo**
-![Juego](https://i.imgur.com/U8GcAOO.png)
+![Juego]()
 
 **Final del juego y resultados**
-![FinJuego](https://i.imgur.com/CLXmsJz.png)
+![FinJuego]()
 
 #### Mejoras
 ¡API REST y WebSockets!
