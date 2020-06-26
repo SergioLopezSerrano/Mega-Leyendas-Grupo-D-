@@ -1,7 +1,7 @@
 # LEGENDS REALM
 ## Game Design Document
 --------------------------------------------------------
-##### 10 de Enero de 2020
+##### 8 de Julio de 2020
 ###### Fase 4
 --------------------------------------------------------
 #### Somos el equipo D, Mega Leyendas:  
@@ -25,6 +25,7 @@
 6. Actualizaciones y novedades de la fase 2
 7. Actualizaciones y novedades de la fase 3
 8. Actualizaciones y novedades de la fase 4
+9. Actualizaciones y novedades de la fase 4 (convocatoria de Julio)
 -------------------------------------------------------
 
 ### 1. Introducción
@@ -257,3 +258,79 @@ música de agua -- (https://www.youtube.com/watch?v=IR243woyHmU)
 música de chuche -- (https://www.youtube.com/watch?v=cli97CymUmQ)
 
 música de inicio -- (https://www.youtube.com/watch?v=5ov6lzqWjmk)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+### 9. Actualizaciones y novedades de la fase 4 (convocatoria de Julio)
+#### ¡Modo online!
+Esto significa que sólo hay un jugador en cada máquina, por lo tanto, se usan los controles del jugador 1: WASD para moverse y la Barra Espaciadora para coger la bola.
+
+#### ¡Algunas cosas nuevas!
+###### (Diseños originales hechos por nuestra artista principal, Álex)
+###### (¡Nuevos mapas hechos por ella misma y música free source!)
+
+**Pantalla de selección de nombre**
+![PantalladeNombre](https://i.imgur.com/yxckWOm.png)
+
+**Pantalla de inicio**
+![PantalladeInicio](https://i.imgur.com/CU7OYaM.png)
+
+**Menú de selección**
+![MenuSeleccion](https://i.imgur.com/jK2tyMd.png)
+
+**Menú de Controles**
+![MenuControles](https://i.imgur.com/8mrJPmC.png)
+
+**Menú de Créditos**
+![MenuCreditos](https://i.imgur.com/VVhUaGs.png)
+
+**Menú de selección de personajes**
+![SeleccionPersonajes](https://i.imgur.com/wDU8GMt.png)
+
+**Menú de selección de mapa**
+![Mapas](https://i.imgur.com/Hqxi8yR.png)
+
+**Juego en vivo**
+![Juego](https://i.imgur.com/7XkqUzD.png)
+
+**Pantalla de desconexión**
+![PantallaDesconexion](https://i.imgur.com/PDWN3V2.png)
+
+**Final del juego y resultados**
+![FinJuego](https://i.imgur.com/npgvDHT.png)
+
+#### Mejoras
+¡API REST y WebSockets!
+Hemos mantenido las funcionalidades de API REST de la fase 3 y hemos añadido unas cuantas más para la gestión de las partidas.  
+El juego puede mantener 20 partidas a la vez, con 2 jugadores activos en cada partida y más jugadores en la aplicación (aunque, alcanzado el límite de 20 partidas creadas, no podrían crear ninguna más).  
+Al crear una partida, se usa la API REST que controla el juego para hacer un POST de una nueva partida con el usuario que la crea asociado a ella.  
+El jugador 2 busca una partida y se une a la que quiera, haciendo un PUT de ese usuario 2 en la partida correspondiente.  
+Una vez los dos jugadores están en la partida, pasan al menú de selección de personajes, en el que cada uno elige al que quiera.  
+Después de esto, el jugador 2 va a una sala de espera mientras el jugador 1 escoge el mapa y el tiempo de juego.  
+Tras elegir eso, el jugador uno va a esa sala de espera también para sincronizarse y ambos inician la comunicación por WebSocket.  
+La comunicación WebSocket consiste en lo siguiente:  
+El jugador 1 se encarga de las varibales globales (funciona como un host para los elementos comunes a los dos jugadores: la bola (con su velocidad y aceleración), el tiempo, el mapa, el marcador y comprobar si el juego ha terminado o no) y a su vez envía su posición (también velocidad y aceleración) y si está cogiendo o no la bola.  
+El jugador 2, por su parte, sólo envía su posición y si está cogiendo o no la bola. De esta forma, el jugador 1 se encarga de la logística y el funcionamiento general del juego (ya que si se encargaran los dos habría conflictos). 
+En otros aspectos generales del juego, si por ejemplo uno de los dos jugadores se va, cierra la conexión y destruye la partida. Dado este caso, el otro jugador es enviado a una pantalla que indica que su contrincante ha abandonado la partida.
+
+#### Link al vídeo de presentación del juego
+Aquí tenéis un breve vídeo explicativo y demostrativo de nuestro juego:
+https://youtu.be/8O-_mYi7YBE
+
+#### Conclusiones
+Resolviendo algún que otro problema de sincronización al emepzar las partidas, el resultado del jeugo ha sido más que satisfactorio.
+
+#### Referencias para la música
+música de fuego -- (https://www.youtube.com/watch?v=tVmUBS99ZgQ)
+
+música de bosque -- (https://freesound.org/people/ShadyDave/sounds/264129/)
+
+música de los menús -- (https://freesound.org/people/griffon_designs/sounds/321045/)
+
+música de agua -- (https://www.youtube.com/watch?v=n2oTA5JSk80)
+
+música de chuche -- (https://freesound.org/people/Adhanith/sounds/397965/)
+
+música de inicio -- (https://freesound.org/people/zagi2/sounds/179122/)
