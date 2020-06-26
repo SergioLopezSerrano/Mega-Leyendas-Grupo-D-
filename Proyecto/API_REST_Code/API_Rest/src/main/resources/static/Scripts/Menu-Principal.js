@@ -38,7 +38,6 @@ class MenuPrincipal extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(event){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -69,7 +68,6 @@ class MenuPrincipal extends Phaser.Scene {
         this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Regreso").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Inicio"); 
         });
         
@@ -79,7 +77,6 @@ class MenuPrincipal extends Phaser.Scene {
         	that.seleccion = 0;
         });
         this.selector1.on("pointerdown", function(){
-        	that.scale.startFullscreen();
         	that.scene.start("Servidores"); 
         	//that.scene.start("Menu-Seleccion-Personajes-1");
         });
@@ -88,7 +85,6 @@ class MenuPrincipal extends Phaser.Scene {
         	that.seleccion = 1;
         });
         this.selector2.on("pointerdown", function(){
-        	that.scale.startFullscreen();
         	that.scene.start("Menu-Controles"); 
         });
         this.selector3 = this.add.sprite(config.scale.width / 2 - 30, config.scale.height / 2 + 125, "MenuPrincipal-Selector").setInteractive();
@@ -96,7 +92,6 @@ class MenuPrincipal extends Phaser.Scene {
         	that.seleccion = 2;
         });
         this.selector3.on("pointerdown", function(){
-        	that.scale.startFullscreen();
         	that.scene.start("Menu-Creditos"); 
         });
         this.selector4 = this.add.sprite(config.scale.width / 2 - 30, config.scale.height / 2 + 250, "MenuPrincipal-Selector").setInteractive();
@@ -121,18 +116,15 @@ class MenuPrincipal extends Phaser.Scene {
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
-            that.scale.startFullscreen();
             that.scene.start("Menu-Inicio"); 
         },this);
         this.input.keyboard.on("keydown-" + "W", function(event){
-            this.scale.startFullscreen();
             this.seleccion--;
             if (this.seleccion < 0) {
                 this.seleccion = 3;
             };
         },this);
         this.input.keyboard.on("keydown-" + "S", function(event){
-            this.scale.startFullscreen();
             this.seleccion++;
             if (this.seleccion > 3) {
                 this.seleccion = 0;
@@ -141,20 +133,16 @@ class MenuPrincipal extends Phaser.Scene {
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
             switch(this.seleccion) {
                 case 0:
-                    this.scale.startFullscreen();
                     this.scene.start("Servidores"); 
                     //this.scene.start("Menu-Seleccion-Personajes-1");
                     break;
                 case 1:
-                    this.scale.startFullscreen();
                     this.scene.start("Menu-Controles"); 
                     break;
                 case 2:
-                    this.scale.startFullscreen();
                     this.scene.start("Menu-Creditos"); 
                     break;
                 case 3:
-                    this.scale.stopFullscreen();
                     //deleteUser(idJugador);
                     var user = {
         	        		id: idJugador,

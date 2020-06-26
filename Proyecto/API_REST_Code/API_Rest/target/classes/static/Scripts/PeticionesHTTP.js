@@ -56,6 +56,9 @@ function getOtherUserInGame(userId) {
 	$.ajax({
         url: "/users/" + userId
     }).done(function (user) {
+    	for (var i = 0; i < 1000; i++) {
+    		console.log("ESPERANDO");
+    	};
     	if (user.idGame != idPartida) {
     		var user = {
 	        		id: idJugador,
@@ -66,12 +69,16 @@ function getOtherUserInGame(userId) {
     	    };
             putUser(user);
             deleteGame(idPartida);
+            for (var i = 0; i < 1000; i++) {
+        		console.log("ESPERANDO");
+        	};
             idPartida = 0;
         	idJugadorPartida = 0;
         	idOtroJugador = null;
         	nombreOtroJugador = null;
-        	that.scale.startFullscreen();
-            that.scene.start("Menu-Principal"); 
+        	if (!primeroEnAbandonar) {
+        		that.scene.start("Pantalla-Abandono"); 
+        	};
     	};
     })
 };
@@ -81,6 +88,8 @@ function getOtherUserInGameWS(userId) {
         url: "/users/" + userId
     }).done(function (user) {
     	if (user.idGame != idPartida) {
+    		resultado = [0, 0];
+    		tiempo = 30;
     		var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
@@ -90,6 +99,9 @@ function getOtherUserInGameWS(userId) {
     	    };
             putUser(user);
             deleteGame(idPartida);
+            for (var i = 0; i < 1000; i++) {
+        		console.log("ESPERANDO");
+        	};
             idPartida = 0;
         	idOtroJugador = null;
         	nombreOtroJugador = null;
@@ -125,7 +137,9 @@ function getOtherUserInGameWS(userId) {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador1BolaTocando: null,
-                			Jugador1BolaCogida: null	
+                			Jugador1BolaCogida: null,
+                			Jugador2PosicionX: null,
+                			Jugador2PosicionY: null
                 	};
                 };
                 if (idJugadorPartida == 2) {
@@ -147,15 +161,20 @@ function getOtherUserInGameWS(userId) {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador2BolaTocando: null,
-                			Jugador2BolaCogida: null	
+                			Jugador2BolaCogida: null,
+                			Right: false,
+                			Left: false,
+                			Up: false,
+                			Down: false
                 	};
                 };
             	connection.send(JSON.stringify(user)); 
         	}; 	
         	connection = null;
         	idJugadorPartida = 0;
-        	that.scale.startFullscreen();
-            that.scene.start("Menu-Principal"); 
+        	if (!primeroEnAbandonar) {
+        		that.scene.start("Pantalla-Abandono"); 
+        	};
     	};
     })
 	
@@ -220,12 +239,11 @@ function postGame() {
     })
 };
 
-function getGames(){
+function getGames() {
 	 $.ajax({
 	     url: "/games"
 	 }).done(function (games) {
 		 console.log("Loaded Games: " + JSON.stringify(games));
-		 
 		 var pos = 200; 
 		 for (var i = 0; i < games.length; i++) {
 			 if (games[i].user1 == null || games[i].user2 == null) {
@@ -258,7 +276,7 @@ function getGames(){
 	 })
 };
 
-function getNumberGames(){
+function getNumberGames() {
 	 $.ajax({
 	     url: "/games"
 	 }).done(function (games) {

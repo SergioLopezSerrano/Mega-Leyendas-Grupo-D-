@@ -38,7 +38,6 @@ class MenuSeleccionPersonajes1 extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(event){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -60,6 +59,7 @@ class MenuSeleccionPersonajes1 extends Phaser.Scene {
         this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Abandonar-Partida").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
+        	primeroEnAbandonar = true;
         	var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
@@ -69,16 +69,19 @@ class MenuSeleccionPersonajes1 extends Phaser.Scene {
     	    };
             putUser(user);
             deleteGame(idPartida);
+            for (var i = 0; i < 1000; i++) {
+        		console.log("ESPERANDO");
+        	};
             idPartida = 0;
         	idJugadorPartida = 0;
         	idOtroJugador = null;
         	nombreOtroJugador = null;
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Principal"); 
         });
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
+        	primeroEnAbandonar = true;
         	var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
@@ -88,11 +91,13 @@ class MenuSeleccionPersonajes1 extends Phaser.Scene {
     	    };
             putUser(user);
             deleteGame(idPartida);
+            for (var i = 0; i < 1000; i++) {
+        		console.log("ESPERANDO");
+        	};
             idPartida = 0;
         	idJugadorPartida = 0;
         	idOtroJugador = null;
         	nombreOtroJugador = null;
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Principal"); 
         },this);
         
@@ -178,49 +183,40 @@ class MenuSeleccionPersonajes1 extends Phaser.Scene {
         this.J1Selecionado = false;
         this.espacioPulsado = false;
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
-            this.scale.startFullscreen();
             this.espacioPulsado = true;
         },this);  
         
         this.teclas1Enabled = true;
         this.teclas1 = [];
         this.teclas1[0] = this.input.keyboard.on("keydown-" + "D", function(event){
-            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             right[0] = true;
         },this);
         this.teclas1[1] = this.input.keyboard.on("keydown-" + "A", function(event){
-            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             left[0] = true;
         },this);
         this.teclas1[2] = this.input.keyboard.on("keydown-" + "W", function(event){
-            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             up[0] = true;
         },this);
         this.teclas1[3] = this.input.keyboard.on("keydown-" + "S", function(event){
-            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             down[0] = true;
         },this);
         this.teclas1[4] = this.input.keyboard.on("keyup-" + "D", function(event){
-            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             right[0] = false;
         },this);
         this.teclas1[5] = this.input.keyboard.on("keyup-" + "A", function(event){
-            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             left[0] = false;
         },this);
         this.teclas1[6] = this.input.keyboard.on("keyup-" + "W", function(event){
-            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             up[0] = false;
         },this);
         this.teclas1[7] = this.input.keyboard.on("keyup-" + "S", function(event){
-            this.scale.startFullscreen();
             if(this.teclas1Enabled)
             down[0] = false;
         },this);

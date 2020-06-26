@@ -7,9 +7,16 @@ class Final extends Phaser.Scene {
     };
     
     create() {  
-        this.menu = this.physics.add.image(config.scale.width / 2, config.scale.height / 2, "Final-Volver-A-Jugar");
+    	
+    	//FILTRO
+        this.fondo = this.add.image(config.scale.width / 2, config.scale.height / 2, "Final-Filtro");
+        this.fondo.setDepth(0);
         
         if (resultado[0] > resultado[1]) {
+        	//RESULTADO
+            this.resultado = this.add.image(config.scale.width / 2, config.scale.height / 2 - 180, "Final-Resultado-J1");
+            this.resultado.setDepth(0);
+            
             this.texto = this.add.text(config.scale.width / 2, config.scale.height / 2 - 180, "Gana  el  Jugador  1");
             this.texto.setOrigin(0.5, 0.5);
             this.texto.setFont("Arial Black");
@@ -17,6 +24,10 @@ class Final extends Phaser.Scene {
             this.texto.setFill("White");
             this.texto.setStroke("Purple", 5);
         } else if (resultado[0] < resultado[1]) {
+        	//RESULTADO
+            this.resultado = this.add.image(config.scale.width / 2, config.scale.height / 2 - 180, "Final-Resultado-J2");
+            this.resultado.setDepth(0);
+            
             this.texto = this.add.text(config.scale.width / 2, config.scale.height / 2 - 180, "Gana  el  Jugador  2");
             this.texto.setOrigin(0.5, 0.5);
             this.texto.setFont("Arial Black");
@@ -24,6 +35,10 @@ class Final extends Phaser.Scene {
             this.texto.setFill("White");
             this.texto.setStroke("Purple", 5);
         } else {
+        	//RESULTADO
+            this.resultado = this.add.image(config.scale.width / 2, config.scale.height / 2 - 180, "Final-Resultado-Empate");
+            this.resultado.setDepth(0);
+            
             this.texto = this.add.text(config.scale.width / 2, config.scale.height / 2 - 180, "Empate");
             this.texto.setOrigin(0.5, 0.5);
             this.texto.setFont("Arial Black");
@@ -33,22 +48,18 @@ class Final extends Phaser.Scene {
         };
         
         //BOTON ABANDONAR SERVIDOR
-        this.botonRegreso = this.add.image(config.scale.width / 2, config.scale.height / 2 + 200, "MenuPrincipal-Boton-Abandonar-Partida").setInteractive();
+        this.botonRegreso = this.add.image(config.scale.width / 2, config.scale.height / 2 + 200, "Final-Menu").setInteractive();
         this.botonRegreso.setDepth(10);
         this.botonRegreso.setScale(3, 3);
         this.botonRegreso.on("pointerdown", function(){ 
-        	var user = {
+        	var usuario = {
 	        		id: idJugador,
 	        		name: nombreJugador,
 	        		connected: true,
 	        		idGame: 0,
 	        		idPlayer: 0
     	    };
-            putUser(user);
-            idPartida = 0;
-        	idOtroJugador = null;
-        	nombreOtroJugador = null;
-        	otroJugadorPreparado = false;
+            putUser(usuario);
         	if (connection != null) {
             	connection.onopen = function () {
             	};
@@ -80,7 +91,9 @@ class Final extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador1BolaTocando: null,
-                			Jugador1BolaCogida: null	
+                			Jugador1BolaCogida: null,
+                			Jugador2PosicionX: null,
+                			Jugador2PosicionY: null
                 	};
                 };
                 if (idJugadorPartida == 2) {
@@ -102,43 +115,60 @@ class Final extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador2BolaTocando: null,
-                			Jugador2BolaCogida: null	
+                			Jugador2BolaCogida: null,
+                			Right: false,
+                			Left: false,
+                			Up: false,
+                			Down: false
                 	};
                 };
             	connection.send(JSON.stringify(user)); 
         	};
+        	deleteGame(idPartida);
+        	right = [false, false];
+        	left = [false, false];
+        	up = [false, false];
+        	down = [false, false];
+        	tiempo = 30;
+        	personajeJugador = [1, 1];
+        	escenario = 0;
+        	resultado = [0, 0];
         	connection = null;
+        	idJugador = null;
+        	nombreJugador = null;
+        	idPartida = 0;
         	idJugadorPartida = 0;
-        	that.scale.startFullscreen();
-        	for (var i = 0; i < 2; i++) {
-                right[i] = false;
-                left[i] = false;
-                up[i] = false;
-                down[i] = false;
-            };
-            tiempo = 0;
-            personajeJugador = [0, 0];
-            escenario = 0;
-            resultado = [0, 0];
+        	idOtroJugador = null;
+        	nombreOtroJugador = null;
+        	otroJugadorPreparado = false;
+        	primeroEnAbandonar = false;
+        	
             that.scene.start("Menu-Principal");
             that.scene.stop("Juego");
             that.scene.stop("Final");
         });
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
-        	var user = {
+        	var usuario = {
 	        		id: idJugador,
 	        		name: nombreJugador,
 	        		connected: true,
 	        		idGame: 0,
 	        		idPlayer: 0
     	    };
-            putUser(user);
-            idPartida = 0;
-        	idOtroJugador = null;
-        	nombreOtroJugador = null;
-        	otroJugadorPreparado = false;
+            putUser(usuario);
         	if (connection != null) {
             	connection.onopen = function () {
             	};
@@ -170,7 +200,9 @@ class Final extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador1BolaTocando: null,
-                			Jugador1BolaCogida: null	
+                			Jugador1BolaCogida: null,
+                			Jugador2PosicionX: null,
+                			Jugador2PosicionY: null
                 	};
                 };
                 if (idJugadorPartida == 2) {
@@ -192,24 +224,34 @@ class Final extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador2BolaTocando: null,
-                			Jugador2BolaCogida: null	
+                			Jugador2BolaCogida: null,
+                			Right: false,
+                			Left: false,
+                			Up: false,
+                			Down: false
                 	};
                 };
             	connection.send(JSON.stringify(user)); 
         	};
+        	deleteGame(idPartida);
+        	right = [false, false];
+        	left = [false, false];
+        	up = [false, false];
+        	down = [false, false];
+        	tiempo = 30;
+        	personajeJugador = [1, 1];
+        	escenario = 0;
+        	resultado = [0, 0];
         	connection = null;
+        	idJugador = null;
+        	nombreJugador = null;
+        	idPartida = 0;
         	idJugadorPartida = 0;
-        	that.scale.startFullscreen();
-            for (var i = 0; i < 2; i++) {
-                right[i] = false;
-                left[i] = false;
-                up[i] = false;
-                down[i] = false;
-            };
-            tiempo = 0;
-            personajeJugador = [0, 0];
-            escenario = 0;
-            resultado = [0, 0];
+        	idOtroJugador = null;
+        	nombreOtroJugador = null;
+        	otroJugadorPreparado = false;
+        	primeroEnAbandonar = false;
+        	
             that.scene.start("Menu-Principal");
             that.scene.stop("Juego");
             that.scene.stop("Final");

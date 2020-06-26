@@ -10,6 +10,8 @@ class Servidores extends Phaser.Scene {
     	//INICIALIZAR VARIABLE CON LA REFERENCIA A LA ESCENA
         that = this;
         
+        primeroEnAbandonar = false;
+        
         //USUARIOS CONECTADOS
         this.usuariosConectados = this.add.text(5, -15, "");
         this.usuariosConectados.setOrigin(0.5, 0.5);
@@ -38,7 +40,6 @@ class Servidores extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -58,13 +59,11 @@ class Servidores extends Phaser.Scene {
         this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Regreso").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Principal"); 
         });
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Principal"); 
         },this);
         

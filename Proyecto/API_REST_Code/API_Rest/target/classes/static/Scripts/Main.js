@@ -1,4 +1,4 @@
-/* global Phaser, MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, UnirsePartida, EstablecerWebsocket, MenuSeleccionPersonajes1, MenuSeleccionPersonajes2, MenuSeleccionEscenarios, SalaEspera, Juego1, Juego2, Pausa, Final */
+/* global Phaser, MenuCarga, MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, UnirsePartida, MenuSeleccionPersonajes1, MenuSeleccionPersonajes2, MenuSeleccionEscenarios, SalaEspera, Juego1, Juego2, Pausa, Final, PantallaAbandono */
 
 var config = {
     type: Phaser.AUTO,
@@ -18,7 +18,7 @@ var config = {
         }  
     },
 
-    scene: [MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, UnirsePartida, EstablecerWebsocket, MenuSeleccionPersonajes1, MenuSeleccionPersonajes2, MenuSeleccionEscenarios, SalaEspera, Juego1, Juego2, Pausa, Final]
+    scene: [MenuCarga, MenuInicio, MenuPrincipal, MenuControles, MenuCreditos, Servidores, EsperandoJugador, UnirsePartida, MenuSeleccionPersonajes1, MenuSeleccionPersonajes2, MenuSeleccionEscenarios, SalaEspera, Juego1, Juego2, Pausa, Final, PantallaAbandono]
 };
 ////VARIABLES GLOBALES////
 var that = null;
@@ -51,5 +51,7 @@ var nombreOtroJugador = null;
 var otroJugadorPreparado = false;
 
 var usuariosVisibles = false;
+
+var primeroEnAbandonar = false;
 
 

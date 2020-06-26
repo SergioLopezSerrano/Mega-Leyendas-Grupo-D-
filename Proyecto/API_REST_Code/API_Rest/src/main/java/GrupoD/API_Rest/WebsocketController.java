@@ -56,6 +56,8 @@ public class WebsocketController extends TextWebSocketHandler {
 			savingNode.put("aceleracionPelotaY", node.get("aceleracionPelotaY").asText());
 			savingNode.put("Jugador1BolaTocando", node.get("Jugador1BolaTocando").asText());
 			savingNode.put("Jugador1BolaCogida", node.get("Jugador1BolaCogida").asText());
+			savingNode.put("Jugador2PosicionX", node.get("Jugador2PosicionX").asText());
+			savingNode.put("Jugador2PosicionY", node.get("Jugador2PosicionY").asText());
 			
 			if (node.get("primerContacto").asBoolean()) {
 				a[Integer.parseInt(session.getUri().toString().substring(1))] = true;
@@ -90,6 +92,10 @@ public class WebsocketController extends TextWebSocketHandler {
 			savingNode.put("aceleracionPelotaY", node.get("aceleracionPelotaY").asText());
 			savingNode.put("Jugador2BolaTocando", node.get("Jugador2BolaTocando").asText());
 			savingNode.put("Jugador2BolaCogida", node.get("Jugador2BolaCogida").asText());
+			savingNode.put("Right", node.get("Right").asText());
+			savingNode.put("Left", node.get("Left").asText());
+			savingNode.put("Up", node.get("Up").asText());
+			savingNode.put("Down", node.get("Down").asText());
 			
 			if (node.get("primerContacto").asBoolean()) {
 				b[Integer.parseInt(session.getUri().toString().substring(1))] = true;

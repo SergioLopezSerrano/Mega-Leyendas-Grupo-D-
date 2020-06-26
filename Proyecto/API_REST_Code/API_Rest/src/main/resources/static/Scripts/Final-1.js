@@ -34,7 +34,6 @@ class Final extends Phaser.Scene {
         };
         
         this.input.keyboard.on("keydown-" + "W", function(event){
-            this.scale.startFullscreen();
             if (this.seleccion === "volverAJugar") {
                 this.seleccion = "menu";
                 this.menu.setTexture("Final-Menu");
@@ -44,7 +43,6 @@ class Final extends Phaser.Scene {
             };
         },this);
         this.input.keyboard.on("keydown-" + "S", function(event){
-            this.scale.startFullscreen();
             if (this.seleccion === "volverAJugar") {
                 this.seleccion = "menu";
                 this.menu.setTexture("Final-Menu");
@@ -54,7 +52,6 @@ class Final extends Phaser.Scene {
             };
         },this);
         this.input.keyboard.on("keydown-" + "UP", function(event){
-            this.scale.startFullscreen();
             if (this.seleccion === "volverAJugar") {
                 this.seleccion = "menu";
                 this.menu.setTexture("Final-Menu");
@@ -64,7 +61,6 @@ class Final extends Phaser.Scene {
             };
         },this);
         this.input.keyboard.on("keydown-" + "DOWN", function(event){
-            this.scale.startFullscreen();
             if (this.seleccion === "volverAJugar") {
                 this.seleccion = "menu";
                 this.menu.setTexture("Final-Menu");
@@ -75,7 +71,6 @@ class Final extends Phaser.Scene {
         },this);
         
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
-            this.scale.startFullscreen();
             if (this.seleccion === "volverAJugar") {
                 for (var i = 0; i < 2; i++) {
                     right[i] = false;
@@ -105,7 +100,6 @@ class Final extends Phaser.Scene {
             };
         },this);
         this.input.keyboard.on("keydown-" + "NUMPAD_ZERO", function(event){
-            this.scale.startFullscreen();
             if (this.seleccion === "volverAJugar") {
                 for (var i = 0; i < 2; i++) {
                     right[i] = false;

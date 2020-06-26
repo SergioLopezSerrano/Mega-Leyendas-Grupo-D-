@@ -103,8 +103,15 @@ class MenuInicio extends Phaser.Scene {
         this.load.image("Pausa-Menu", "Sources/Pausa/Menu.png");
         
         ////FINAL////
-        this.load.image("Final-Volver-A-Jugar", "Sources/Final/Volver-A-Jugar.png");
+        this.load.image("Final-Filtro", "Sources/Final/Filtro.png");
         this.load.image("Final-Menu", "Sources/Final/Menu.png");
+        this.load.image("Final-Resultado-J1", "Sources/Final/Resultado-J1.png");
+        this.load.image("Final-Resultado-J2", "Sources/Final/Resultado-J2.png");
+        this.load.image("Final-Resultado-Empate", "Sources/Final/Resultado-Empate.png");
+        
+        ////Pantalla-Abandono////
+        this.load.image("PantallaAbandono-Fondo", "Sources/Pantalla-Abandono/Fondo.png");
+        this.load.image("PantallaAbandono-Boton", "Sources/Pantalla-Abandono/Boton.png");
         
         ////MUSICA////
         this.load.audio("Intro", "Sources/Musica/Intro.mp3");
@@ -118,6 +125,8 @@ class MenuInicio extends Phaser.Scene {
     create() {
         //INICIALIZAR VARIABLE CON LA REFERENCIA A LA ESCENA
         that = this;
+        
+        this.scene.stop("Menu-Carga");
          
         //USUARIOS CONECTADOS
         this.usuariosConectados = this.add.text(5, -15, "");
@@ -147,7 +156,6 @@ class MenuInicio extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(event){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -187,13 +195,11 @@ class MenuInicio extends Phaser.Scene {
         
         //ACTIVAR DETECTOR DE EVENTOS DE RATON
         this.input.on("pointerdown", function(){
-        	that.scale.startFullscreen();
         	that.scene.start("Menu-Principal"); 
          });
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown", function(){
-            this.scale.startFullscreen();
             this.scene.start("Menu-Principal"); 
         },this);
         

@@ -38,7 +38,6 @@ class MenuSeleccionPersonajes2 extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(event){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -60,24 +59,7 @@ class MenuSeleccionPersonajes2 extends Phaser.Scene {
         this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Abandonar-Partida").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
-	        	var user = {
-		        		id: idJugador,
-		        		name: nombreJugador,
-		        		connected: true,
-		        		idGame: 0,
-		        		idPlayer: 0
-	    	    };
-	            putUser(user);
-	            idPartida = 0;
-	        	idJugadorPartida = 0;
-	        	idOtroJugador = null;
-	        	nombreOtroJugador = null;
-	        	that.scale.startFullscreen();
-	            that.scene.start("Menu-Principal"); 
-        });
-        
-        //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
-        this.input.keyboard.on("keydown-" + "V", function(){
+    		primeroEnAbandonar = true;
         	var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
@@ -90,7 +72,25 @@ class MenuSeleccionPersonajes2 extends Phaser.Scene {
         	idJugadorPartida = 0;
         	idOtroJugador = null;
         	nombreOtroJugador = null;
-        	that.scale.startFullscreen();
+        	
+            that.scene.start("Menu-Principal"); 
+        });
+        
+        //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
+        this.input.keyboard.on("keydown-" + "V", function(){
+        	primeroEnAbandonar = true;
+        	var user = {
+	        		id: idJugador,
+	        		name: nombreJugador,
+	        		connected: true,
+	        		idGame: 0,
+	        		idPlayer: 0
+    	    };
+            putUser(user);
+            idPartida = 0;
+        	idJugadorPartida = 0;
+        	idOtroJugador = null;
+        	nombreOtroJugador = null;
             that.scene.start("Menu-Principal"); 
         },this);
         
@@ -176,49 +176,40 @@ class MenuSeleccionPersonajes2 extends Phaser.Scene {
         this.J2Selecionado = false;
         this.ceroPulsado = false;
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
-            this.scale.startFullscreen();
             this.ceroPulsado = true;
         },this);
         
         this.teclas2Enabled = true;
         this.teclas2 = [];
         this.teclas2[0] = this.input.keyboard.on("keydown-" + "D", function(event){
-            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             right[1] = true;
         },this);
         this.teclas2[1] = this.input.keyboard.on("keydown-" + "A", function(event){
-            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             left[1] = true;
         },this);
         this.teclas2[2] = this.input.keyboard.on("keydown-" + "W", function(event){
-            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             up[1] = true;
         },this);
         this.teclas2[3] = this.input.keyboard.on("keydown-" + "S", function(event){
-            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             down[1] = true;
         },this);
         this.teclas2[4] = this.input.keyboard.on("keyup-" + "D", function(event){
-            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             right[1] = false;
         },this);
         this.teclas2[5] = this.input.keyboard.on("keyup-" + "A", function(event){
-            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             left[1] = false;
         },this);
         this.teclas2[6] = this.input.keyboard.on("keyup-" + "W", function(event){
-            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             up[1] = false;
         },this);
         this.teclas2[7] = this.input.keyboard.on("keyup-" + "S", function(event){
-            this.scale.startFullscreen();
             if(this.teclas2Enabled)
             down[1] = false;
         },this);    

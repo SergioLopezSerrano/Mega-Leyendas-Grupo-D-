@@ -38,7 +38,6 @@ class UnirsePartida extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -58,13 +57,11 @@ class UnirsePartida extends Phaser.Scene {
         this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Regreso").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
-        	that.scale.startFullscreen();
             that.scene.start("Servidores"); 
         });
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
-        	that.scale.startFullscreen();
             that.scene.start("Servidores"); 
         },this);
         
@@ -72,13 +69,11 @@ class UnirsePartida extends Phaser.Scene {
         this.botonRegreso = this.add.image(config.scale.width - 100, 60, "MenuPrincipal-Boton-Recargar").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
-        	that.scale.startFullscreen();
             that.scene.start("Unirse-Partida"); 
         });
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
-        	that.scale.startFullscreen();
             that.scene.start("Unirse-Partida"); 
         },this);
         

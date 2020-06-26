@@ -10,6 +10,7 @@
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
         <script type="text/javascript" src="Scripts/phaser.js"></script> 
         <script type="text/javascript" src="Scripts/PeticionesHTTP.js"></script> 
+        <script type="text/javascript" src="Scripts/Menu-Carga.js"></script>   
         <script type="text/javascript" src="Scripts/Menu-Inicio.js"></script>   
         <script type="text/javascript" src="Scripts/Menu-Principal.js"></script> 
         <script type="text/javascript" src="Scripts/Menu-Controles.js"></script> 
@@ -17,7 +18,6 @@
         <script type="text/javascript" src="Scripts/Servidores.js"></script> 
         <script type="text/javascript" src="Scripts/Esperando-Jugador.js"></script> 
         <script type="text/javascript" src="Scripts/Unirse-Partida.js"></script> 
-        <script type="text/javascript" src="Scripts/Establecer-Websocket.js"></script>
         <script type="text/javascript" src="Scripts/Menu-Seleccion-Personajes-1.js"></script>
         <script type="text/javascript" src="Scripts/Menu-Seleccion-Personajes-2.js"></script>
         <script type="text/javascript" src="Scripts/Menu-Seleccion-Escenarios.js"></script>
@@ -26,6 +26,7 @@
         <script type="text/javascript" src="Scripts/Juego-2.js"></script>
         <script type="text/javascript" src="Scripts/Pausa.js"></script>
         <script type="text/javascript" src="Scripts/Final.js"></script>
+        <script type="text/javascript" src="Scripts/Pantalla-Abandono.js"></script>  
         <script type="text/javascript" src="Scripts/Main.js"></script>   
 
     </head>
@@ -52,7 +53,6 @@
 	    	document.getElementById("sombra").remove();
 	    	
 	    	game = new Phaser.Game(config); 
-	    	game.scale.startFullscreen();
 	    };
 	    
 	    window.onclick = function () {
@@ -71,7 +71,7 @@
             var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
-	        		connected: true,
+	        		connected: false,
 	        		idGame: 0,
 	        		idPlayer: 0
     	    };
@@ -109,7 +109,9 @@
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador1BolaTocando: null,
-                			Jugador1BolaCogida: null	
+                			Jugador1BolaCogida: null,
+                			Jugador2PosicionX: null,
+                			Jugador2PosicionY: null
                 	};
                 };
                 if (idJugadorPartida == 2) {
@@ -131,7 +133,11 @@
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador2BolaTocando: null,
-                			Jugador2BolaCogida: null	
+                			Jugador2BolaCogida: null,
+                			Right: false,
+                			Left: false,
+                			Up: false,
+                			Down: false	
                 	};
                 };
             	connection.send(JSON.stringify(user)); 

@@ -38,7 +38,6 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(event){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -60,13 +59,11 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Regreso").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Seleccion-Personajes-1"); 
         });
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Seleccion-Personajes-1"); 
         },this);
         
@@ -195,49 +192,40 @@ class MenuSeleccionEscenarios extends Phaser.Scene {
         this.mapaSelecionado = false;
         this.espacioPulsado = false;
         this.input.keyboard.on("keydown-" + "SPACE", function(event){
-            this.scale.startFullscreen();
             this.espacioPulsado = true;
         },this);
         
         this.teclasEnabled = true;
         this.teclas = [];
         this.teclas[0] = this.input.keyboard.on("keydown-" + "D", function(event){
-            this.scale.startFullscreen();
             if(this.teclasEnabled)
             right[0] = true;
         },this);
         this.teclas[1] = this.input.keyboard.on("keydown-" + "A", function(event){
-            this.scale.startFullscreen();
             if(this.teclasEnabled)
             left[0] = true;
         },this);
         this.teclas[2] = this.input.keyboard.on("keydown-" + "W", function(event){
-            this.scale.startFullscreen();
             if(this.teclasEnabled)
             up[0] = true;
         },this);
         this.teclas[3] = this.input.keyboard.on("keydown-" + "S", function(event){
-            this.scale.startFullscreen();
             if(this.teclasEnabled)
             down[0] = true;
         },this);
         this.teclas[4] = this.input.keyboard.on("keyup-" + "D", function(event){
-            this.scale.startFullscreen();
             if(this.teclasEnabled)
             right[0] = false;
         },this);
         this.teclas[5] = this.input.keyboard.on("keyup-" + "A", function(event){
-            this.scale.startFullscreen();
             if(this.teclasEnabled)
             left[0] = false;
         },this);
         this.teclas[6] = this.input.keyboard.on("keyup-" + "W", function(event){
-            this.scale.startFullscreen();
             if(this.teclasEnabled)
             up[0] = false;
         },this);
         this.teclas[7] = this.input.keyboard.on("keyup-" + "S", function(event){
-            this.scale.startFullscreen();
             if(this.teclasEnabled)
             down[0] = false;
         },this);

@@ -38,7 +38,6 @@ class Juego1 extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(event){
-            //this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -80,6 +79,9 @@ class Juego1 extends Phaser.Scene {
         this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Abandonar-Partida").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
+        	resultado = [0, 0];
+        	tiempo = 30;
+        	primeroEnAbandonar = true;
         	var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
@@ -123,19 +125,23 @@ class Juego1 extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador1BolaTocando: null,
-                			Jugador1BolaCogida: null	
+                			Jugador1BolaCogida: null,
+                			Jugador2PosicionX: null,
+                			Jugador2PosicionY: null
                 	};
                 };
             	connection.send(JSON.stringify(user)); 
         	};
         	connection = null;
         	idJugadorPartida = 0;
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Principal"); 
         });
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
+        	resultado = [0, 0];
+        	tiempo = 30;
+        	primeroEnAbandonar = true;
         	var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
@@ -179,14 +185,15 @@ class Juego1 extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador1BolaTocando: null,
-                			Jugador1BolaCogida: null	
+                			Jugador1BolaCogida: null,
+                			Jugador2PosicionX: null,
+                			Jugador2PosicionY: null
                 	};
                 };
             	connection.send(JSON.stringify(user)); 
         	};
         	connection = null;
-        	idJugadorPartida = 0;
-        	that.scale.startFullscreen();
+        	idJugadorPartida = 0; 	
             that.scene.start("Menu-Principal"); 
         },this);
         
@@ -222,42 +229,34 @@ class Juego1 extends Phaser.Scene {
         },this);
         this.teclas1 = [];
         this.teclas1[0] = this.input.keyboard.on("keydown-" + "D", function(event){
-            //this.scale.startFullscreen();
             if(this.teclas1Enabled)
             right[0] = true;
         },this);
         this.teclas1[1] = this.input.keyboard.on("keydown-" + "A", function(event){
-            //this.scale.startFullscreen();
             if(this.teclas1Enabled)
             left[0] = true;
         },this);
         this.teclas1[2] = this.input.keyboard.on("keydown-" + "W", function(event){
-            //this.scale.startFullscreen();
             if(this.teclas1Enabled)
             up[0] = true;
         },this);
         this.teclas1[3] = this.input.keyboard.on("keydown-" + "S", function(event){
-            //this.scale.startFullscreen();
             if(this.teclas1Enabled)
             down[0] = true;
         },this);
         this.teclas1[4] = this.input.keyboard.on("keyup-" + "D", function(event){
-            //this.scale.startFullscreen();
             if(this.teclas1Enabled)
             right[0] = false;
         },this);
         this.teclas1[5] = this.input.keyboard.on("keyup-" + "A", function(event){
-            //this.scale.startFullscreen();
             if(this.teclas1Enabled)
             left[0] = false;
         },this);
         this.teclas1[6] = this.input.keyboard.on("keyup-" + "W", function(event){
-            //this.scale.startFullscreen();
             if(this.teclas1Enabled)
             up[0] = false;
         },this);
         this.teclas1[7] = this.input.keyboard.on("keyup-" + "S", function(event){
-            //this.scale.startFullscreen();
             if(this.teclas1Enabled)
             down[0] = false;
         },this);     
@@ -266,12 +265,12 @@ class Juego1 extends Phaser.Scene {
         	console.log("WS message: " + JSON.parse(e.data));
         	otroJugadorPreparado = JSON.parse(e.data).preparado;
         	personajeJugador[1] = parseInt(JSON.parse(e.data).personaje);
-        	that.jugador[1].x = parseInt(JSON.parse(e.data).posicionX);
-        	that.jugador[1].y = parseInt(JSON.parse(e.data).posicionY);
-        	that.jugador[1].body.velocity.x = parseInt(JSON.parse(e.data).velocidadX);
-        	that.jugador[1].body.velocity.y = parseInt(JSON.parse(e.data).velocidadY);
-        	that.jugador[1].body.acceleration.x = parseInt(JSON.parse(e.data).aceleracionX);
-        	that.jugador[1].body.acceleration.y = parseInt(JSON.parse(e.data).aceleracionY);
+        	//that.jugador[1].x = parseInt(JSON.parse(e.data).posicionX);
+        	//that.jugador[1].y = parseInt(JSON.parse(e.data).posicionY);
+        	//that.jugador[1].body.velocity.x = parseInt(JSON.parse(e.data).velocidadX);
+        	//that.jugador[1].body.velocity.y = parseInt(JSON.parse(e.data).velocidadY);
+        	//that.jugador[1].body.acceleration.x = parseInt(JSON.parse(e.data).aceleracionX);
+        	//that.jugador[1].body.acceleration.y = parseInt(JSON.parse(e.data).aceleracionY);
         	//that.bola.x = parseInt(JSON.parse(e.data).posicionPelotaX);
         	//that.bola.y = parseInt(JSON.parse(e.data).posicionPelotaY);
         	//that.bola.body.velocity.x = parseInt(JSON.parse(e.data).velocidadPelotaX);
@@ -280,7 +279,17 @@ class Juego1 extends Phaser.Scene {
         	//that.bola.body.acceleration.y = parseInt(JSON.parse(e.data).aceleracionPelotaY);
         	that.Jugador2BolaTocando = JSON.parse(JSON.parse(e.data).Jugador2BolaTocando);
         	that.Jugador2BolaCogida = JSON.parse(JSON.parse(e.data).Jugador2BolaCogida);
+        	right[1] = JSON.parse(JSON.parse(e.data).Right);
+			left[1] = JSON.parse(JSON.parse(e.data).Left);
+			up[1] = JSON.parse(JSON.parse(e.data).Up);
+			down[1] = JSON.parse(JSON.parse(e.data).Down);
         };
+        
+        this.temporizador = this.time.addEvent({
+            delay: 1,
+            loop: true,
+            callback: this.enviarWebsocket
+        });
     };
     
     update() {
@@ -334,15 +343,18 @@ class Juego1 extends Phaser.Scene {
     				aceleracionPelotaX: that.bola.body.acceleration.x,
     				aceleracionPelotaY: that.bola.body.acceleration.y,
     				Jugador1BolaTocando: that.Jugador1BolaTocando,
-    				Jugador1BolaCogida: that.Jugador1BolaCogida	
+    				Jugador1BolaCogida: that.Jugador1BolaCogida,
+    				Jugador2PosicionX: that.jugador[1].x,
+        			Jugador2PosicionY: that.jugador[1].y
     		};
     		
     		connection.send(JSON.stringify(user));
     		
-            this.scene.pause("Juego");
+            this.scene.pause("Juego-1");
+            this.temporizador.paused = true;
             this.scene.launch("Final");
         } else { 	
-        	this.enviarWebsocket();
+        	//this.enviarWebsocket();
         };
     };
     
@@ -1069,7 +1081,9 @@ class Juego1 extends Phaser.Scene {
 				aceleracionPelotaX: that.bola.body.acceleration.x,
 				aceleracionPelotaY: that.bola.body.acceleration.y,
 				Jugador1BolaTocando: that.Jugador1BolaTocando,
-				Jugador1BolaCogida: that.Jugador1BolaCogida	
+				Jugador1BolaCogida: that.Jugador1BolaCogida,
+				Jugador2PosicionX: that.jugador[1].x,
+    			Jugador2PosicionY: that.jugador[1].y
 		};
 		
 		connection.send(JSON.stringify(user));

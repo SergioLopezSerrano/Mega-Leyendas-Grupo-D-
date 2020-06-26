@@ -38,7 +38,6 @@ class SalaEspera extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -58,6 +57,7 @@ class SalaEspera extends Phaser.Scene {
         this.botonRegreso = this.add.image(100, config.scale.height - 60, "MenuPrincipal-Boton-Abandonar-Partida").setInteractive();
         this.botonRegreso.setDepth(2);
         this.botonRegreso.on("pointerdown", function(){ 
+        	primeroEnAbandonar = true;
         	var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
@@ -101,7 +101,9 @@ class SalaEspera extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador1BolaTocando: null,
-                			Jugador1BolaCogida: null	
+                			Jugador1BolaCogida: null,
+                			Jugador2PosicionX: null,
+                			Jugador2PosicionY: null
                 	};
                 };
                 if (idJugadorPartida == 2) {
@@ -123,19 +125,23 @@ class SalaEspera extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador2BolaTocando: null,
-                			Jugador2BolaCogida: null	
+                			Jugador2BolaCogida: null,
+                			Right: false,
+                			Left: false,
+                			Up: false,
+                			Down: false	
                 	};
                 };
             	connection.send(JSON.stringify(user)); 
         	};
         	connection = null;
         	idJugadorPartida = 0;
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Principal"); 
         });
         
         //ACTIVAR DETECTOR DE EVENTOS DE TECLADO
         this.input.keyboard.on("keydown-" + "V", function(){
+        	primeroEnAbandonar = true;
         	var user = {
 	        		id: idJugador,
 	        		name: nombreJugador,
@@ -179,7 +185,9 @@ class SalaEspera extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador1BolaTocando: null,
-                			Jugador1BolaCogida: null	
+                			Jugador1BolaCogida: null,
+                			Jugador2PosicionX: null,
+                			Jugador2PosicionY: null
                 	};
                 };
                 if (idJugadorPartida == 2) {
@@ -201,14 +209,17 @@ class SalaEspera extends Phaser.Scene {
                 			aceleracionPelotaX: null,
                 			aceleracionPelotaY: null,
                 			Jugador2BolaTocando: null,
-                			Jugador2BolaCogida: null	
+                			Jugador2BolaCogida: null,
+                			Right: false,
+                			Left: false,
+                			Up: false,
+                			Down: false	
                 	};
                 };
             	connection.send(JSON.stringify(user)); 
         	};
         	connection = null;
         	idJugadorPartida = 0;
-        	that.scale.startFullscreen();
             that.scene.start("Menu-Principal"); 
         },this);
         
@@ -228,11 +239,19 @@ class SalaEspera extends Phaser.Scene {
         };
         
         this.time.addEvent({
-            delay: 100,
+            delay: 2000,
             loop: false,
-            callback: that.crearWebsocket
-        });
-      
+            callback: function (){
+            	
+            	that.time.addEvent({
+                    delay: 100,
+                    loop: false,
+                    callback: that.crearWebsocket
+                });
+            	
+            }
+        });  
+        
     }; 
     
     update() {
@@ -251,7 +270,7 @@ class SalaEspera extends Phaser.Scene {
     };
     
     crearWebsocket() {
-    	connection = new WebSocket("ws://127.0.0.1:8080/" + idPartida);
+    	connection = new WebSocket("ws://" + window.location.host + "/" + idPartida);
 
     	if (idJugadorPartida == 1) {
     		
@@ -280,7 +299,9 @@ class SalaEspera extends Phaser.Scene {
         			aceleracionPelotaX: null,
         			aceleracionPelotaY: null,
         			Jugador1BolaTocando: null,
-        			Jugador1BolaCogida: null	
+        			Jugador1BolaCogida: null,
+        			Jugador2PosicionX: null,
+        			Jugador2PosicionY: null
         	};
         	
         	connection.send(JSON.stringify(user));
@@ -315,7 +336,11 @@ class SalaEspera extends Phaser.Scene {
         			aceleracionPelotaX: null,
         			aceleracionPelotaY: null,
         			Jugador2BolaTocando: null,
-        			Jugador2BolaCogida: null	
+        			Jugador2BolaCogida: null,
+        			Right: false,
+        			Left: false,
+        			Up: false,
+        			Down: false	
         	};
         	
         	connection.send(JSON.stringify(user));
@@ -363,7 +388,9 @@ class SalaEspera extends Phaser.Scene {
         			aceleracionPelotaX: null,
         			aceleracionPelotaY: null,
         			Jugador1BolaTocando: null,
-        			Jugador1BolaCogida: null	
+        			Jugador1BolaCogida: null,
+        			Jugador2PosicionX: null,
+        			Jugador2PosicionY: null
         	};
         	
         	connection.send(JSON.stringify(user));
@@ -387,7 +414,11 @@ class SalaEspera extends Phaser.Scene {
         			aceleracionPelotaX: null,
         			aceleracionPelotaY: null,
         			Jugador2BolaTocando: null,
-        			Jugador2BolaCogida: null	
+        			Jugador2BolaCogida: null,
+        			Right: false,
+        			Left: false,
+        			Up: false,
+        			Down: false	
         	};
         	
         	connection.send(JSON.stringify(user));

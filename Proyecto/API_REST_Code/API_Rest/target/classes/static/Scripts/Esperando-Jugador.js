@@ -38,7 +38,6 @@ class EsperandoJugador extends Phaser.Scene {
         
         //MOSTRAR USUARIOS
         this.input.keyboard.on("keydown-" + "U", function(){
-            this.scale.startFullscreen();
             if (this.usuariosConectados.visible) {
             	usuariosVisibles = false;
             	this.usuariosConectados.visible = false;
@@ -68,11 +67,13 @@ class EsperandoJugador extends Phaser.Scene {
 	    	    };
 	            putUser(user);
 	            deleteGame(idPartida);
+	            for (var i = 0; i < 1000; i++) {
+	        		console.log("ESPERANDO");
+	        	};
 	            idPartida = 0;
 	        	idJugadorPartida = 0;
 	        	idOtroJugador = null;
 	        	nombreOtroJugador = null;
-	        	that.scale.startFullscreen();
 	            that.scene.start("Servidores"); 
         	};
         });
@@ -89,11 +90,13 @@ class EsperandoJugador extends Phaser.Scene {
 	    	    };
 	            putUser(user);
 	            deleteGame(idPartida);
+	            for (var i = 0; i < 1000; i++) {
+	        		console.log("ESPERANDO");
+	        	};
 	            idPartida = 0;
 	        	idJugadorPartida = 0;
 	        	idOtroJugador = null;
 	        	nombreOtroJugador = null;
-	        	that.scale.startFullscreen();
 	            that.scene.start("Servidores"); 
         	}; 
         },this);
@@ -135,7 +138,7 @@ class EsperandoJugador extends Phaser.Scene {
         this.nombreJugador2.setStroke("Purple", 5);    
         
         //ACTUALIZAR OTRO JUGADOR
-        this.time.addEvent({
+        this.temporizador = this.time.addEvent({
             delay: 100,
             loop: true,
             callback: updateOtherPlayer
@@ -144,6 +147,7 @@ class EsperandoJugador extends Phaser.Scene {
     
     update() {
     	if (idOtroJugador != null) {
+    		this.temporizador.paused = true;
     		getOtherUserInGame(idOtroJugador);
     	};
     	
