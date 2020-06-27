@@ -319,6 +319,10 @@ En otros aspectos generales del juego, si por ejemplo uno de los dos jugadores s
 Aquí tenéis un breve vídeo explicativo y demostrativo de nuestro juego:
 https://youtu.be/8O-_mYi7YBE
 
+#### Diagrama de clases
+
+![DiagramaDeClases](https://i.imgur.com/mNnhlz4.png)
+
 #### Conclusiones
 Resolviendo algún que otro problema de sincronización al emepzar las partidas, el resultado del jeugo ha sido más que satisfactorio.
 
