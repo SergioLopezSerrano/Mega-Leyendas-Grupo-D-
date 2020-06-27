@@ -11,6 +11,9 @@
 ##### David Martínez Costana (d.martinezco.2017@alumnos.urjc.es ; deividmcmj)
 ##### Marcos Montero Domínguez (m.monterod.2017@alumnos.urjc.es ; MarcosMD15)
 --------------------------------------------------------
+#### Vídeo presentación del juego
+https://youtu.be/8O-_mYi7YBE
+--------------------------------------------------------
 
 ## Índice
 1. Introducción  
