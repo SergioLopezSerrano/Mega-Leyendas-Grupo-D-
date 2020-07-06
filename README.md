@@ -277,6 +277,9 @@ Esto significa que sólo hay un jugador en cada máquina, por lo tanto, se usan 
 **Pantalla de selección de nombre**
 ![PantalladeNombre](https://i.imgur.com/yxckWOm.png)
 
+**Pantalla de carga**
+![PantallaCarga](https://i.imgur.com/xjRXIoE.png)
+
 **Pantalla de inicio**
 ![PantalladeInicio](https://i.imgur.com/CU7OYaM.png)
 
@@ -314,7 +317,7 @@ Una vez los dos jugadores están en la partida, pasan al menú de selección de 
 Después de esto, el jugador 2 va a una sala de espera mientras el jugador 1 escoge el mapa y el tiempo de juego.  
 Tras elegir eso, el jugador uno va a esa sala de espera también para sincronizarse y ambos inician la comunicación por WebSocket.  
 La comunicación WebSocket consiste en lo siguiente:  
-El jugador 1 se encarga de las varibales globales (funciona como un host para los elementos comunes a los dos jugadores: la bola (con su velocidad y aceleración), el tiempo, el mapa, el marcador y comprobar si el juego ha terminado o no) y a su vez envía su posición (también velocidad y aceleración) y si está cogiendo o no la bola.  
+El jugador 1 se encarga de las variables globales (funciona como un host para los elementos comunes a los dos jugadores: la bola (con su velocidad y aceleración), el tiempo, el mapa, el marcador y comprobar si el juego ha terminado o no) y a su vez envía su posición (también velocidad y aceleración) y si está cogiendo o no la bola.  
 El jugador 2, por su parte, sólo envía su posición y si está cogiendo o no la bola. De esta forma, el jugador 1 se encarga de la logística y el funcionamiento general del juego (ya que si se encargaran los dos habría conflictos). 
 En otros aspectos generales del juego, si por ejemplo uno de los dos jugadores se va, cierra la conexión y destruye la partida. Dado este caso, el otro jugador es enviado a una pantalla que indica que su contrincante ha abandonado la partida.
 
@@ -327,7 +330,7 @@ https://youtu.be/8O-_mYi7YBE
 ![DiagramaDeClases](https://i.imgur.com/mNnhlz4.png)
 
 #### Conclusiones
-Resolviendo algún que otro problema de sincronización al emepzar las partidas, el resultado del jeugo ha sido más que satisfactorio.
+Resolviendo algún que otro problema de sincronización al empezar las partidas, el resultado del juego ha sido más que satisfactorio.
 
 #### Referencias para la música
 música de fuego -- (https://www.youtube.com/watch?v=tVmUBS99ZgQ)
